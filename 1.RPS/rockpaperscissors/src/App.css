@@ -1,0 +1,32 @@
+.box {
+  border: 10px solid black;
+  width: 500px;
+  height: 300px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.img {
+  width: 200px;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.win {
+  border: 10px solid green;
+}
+
+.lose {
+  border: 10px solid red;
+}
+
+.draw {
+  border: 10px solid black;
+}
+
+.title {
+  text-align: center;
+}
