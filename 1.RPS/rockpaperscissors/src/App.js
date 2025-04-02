@@ -20,7 +20,7 @@ function App() {
   const [compScore, setCompScore] = useState(0);
   const [winStreak, setWinStreak] = useState(0);
   const [maxWinStreak, setMaxWinStreak] = useState(0);
-  const [message, setMessage] = useState(""); // 메시지 상태 추가
+  const [message, setMessage] = useState("");
 
   const play = (user) => {
     setUserChoice(choices[user]);
@@ -30,7 +30,6 @@ function App() {
     setResult(isWinner(choices[user].name, choices[computer].name));
   };
   const isWinner = (user, computer) => {
-    console.log(user, computer);
     if (user === computer) {
       return "draw";
     } else if (
