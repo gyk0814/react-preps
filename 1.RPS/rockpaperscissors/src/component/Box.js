@@ -1,4 +1,5 @@
 import React from "react";
+import questionMark from "../img/the-question-mark.webp";
 
 const Box = (props) => {
   let result;
@@ -13,10 +14,17 @@ const Box = (props) => {
   }
 
   return (
-    <div className={`box ${result}`}>
-      <h1>{props.title}</h1>
-      <img className="img" src={props.item && props.item.img} />
-      <h2>{result}</h2>
+    <div>
+      <div className={`box ${result}`}>
+        <h1>{props.title}</h1>
+        <img
+          className={`img ${!props.item ? "question-mark" : ""}`}
+          src={props.item ? props.item.img : questionMark}
+          alt={props.item && props.item.name}
+        />
+        <h2>{result}</h2>
+      </div>
+      <h3 className="score">score: {props.score}</h3>
     </div>
   );
 };
