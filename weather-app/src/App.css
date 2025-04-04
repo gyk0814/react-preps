@@ -25,10 +25,14 @@ body {
 }
 
 @media (max-width: 600px) {
+  .body {
+    overflow: hidden;
+  }
   .container {
     height: 90dvh;
     overflow: auto;
     position: absolute;
+    padding-bottom: 30px;
     top: 40px;
   }
 
@@ -39,5 +43,6 @@ body {
     position: absolute;
     top: 30px;
     padding-bottom: 20px;
+    color: black;
   }
 }

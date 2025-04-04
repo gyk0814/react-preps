@@ -74,12 +74,9 @@
   top: 40%;
 }
 .infobox {
-  /* padding: 40px 50px; */
   border: 1px solid rgba(0, 0, 0, 0.2);
   display: flex;
   flex: 1;
-  /* color: rgba(255, 255, 255, 0.599);
-  background-color: rgba(0, 0, 0, 0.3); */
   background-color: rgba(0, 0, 0, 0.2);
   color: black;
   border-radius: 10px;
