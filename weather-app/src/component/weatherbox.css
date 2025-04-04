@@ -1,0 +1,110 @@
+.current {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: 100%;
+}
+.current > img {
+  position: absolute;
+  top: 37%;
+  width: 150px;
+  height: 150px;
+  border-radius: 30px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  background-color: white;
+}
+.cityname {
+  position: absolute;
+  top: 15%;
+}
+/* .curloc {
+  position: absolute;
+  top: 0%;
+} */
+.temperature {
+  position: absolute;
+  top: 63%;
+}
+.weather {
+  position: absolute;
+  top: 77%;
+}
+.header {
+  position: absolute;
+  top: 14%;
+  width: 80%;
+  height: 8%;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 5px solid rgba(0, 0, 0, 0.3);
+}
+.curloc {
+  display: flex;
+  flex: 3;
+  justify-content: center;
+}
+.more {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+.details {
+  position: relative;
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 86%;
+  padding: 5px;
+  /* background-color: rgba(255, 255, 255, 0); */
+  align-self: flex-end;
+  gap: 5px;
+}
+
+.moreinfo {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  padding: 0px 20px;
+  border-left: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.moreinfo > h3 {
+  position: absolute;
+  align-items: center;
+  top: 0%;
+  left: 20%;
+}
+.moreinfo > Button {
+  position: relative;
+  top: 40%;
+}
+.infobox {
+  /* padding: 40px 50px; */
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex: 1;
+  /* color: rgba(255, 255, 255, 0.599);
+  background-color: rgba(0, 0, 0, 0.3); */
+  background-color: rgba(0, 0, 0, 0.2);
+  color: black;
+  border-radius: 10px;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.infobox > h1 {
+  margin: 20px 0px;
+}
+
+.sunInfo {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  gap: 5px;
+}
