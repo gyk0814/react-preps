@@ -54,11 +54,11 @@ const color = (id) => {
 const WeatherBox = ({ weather, air }) => {
   return (
     <div className="container">
-      <div className="header">
-        <h3 className="curloc">CURRENT LOCATION</h3>
-        <h3 className="more">Discover More Cities</h3>
-      </div>
       <div className="main">
+        <div className="header">
+          <h3 className="curloc">CURRENT LOCATION</h3>
+          <h3 className="more">Discover More Cities</h3>
+        </div>
         <div className="current">
           <h1 className="cityname">{weather?.name}</h1>
           <img src={getWeatherImg(weather?.weather[0].id)} alt="weather icon" />
@@ -99,7 +99,7 @@ const WeatherBox = ({ weather, air }) => {
             </div>
           </div>
         </div>
-        <div className="moreinfo">
+        <div className="moreloca">
           <Button variant="primary"> Paris </Button>
           <Button variant="primary"> New York </Button>
           <Button variant="primary"> London </Button>

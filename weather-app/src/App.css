@@ -11,15 +11,7 @@ body {
   align-items: center;
   height: 80vh;
   width: 100vw;
-  /* background-color: rgba(169, 169, 169, 0.3); */
   background-color: rgba(0, 0, 0, 0.3);
-}
-.wrapper {
-  height: 90%;
-  width: 80%;
-  position: relative;
-  display: flex;
-  flex-direction: column;
 }
 
 .main {
@@ -30,4 +22,22 @@ body {
   width: 80%;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 30px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    height: 90dvh;
+    overflow: auto;
+    position: absolute;
+    top: 40px;
+  }
+
+  .main {
+    flex-direction: column;
+    width: 90dvw;
+    height: auto;
+    position: absolute;
+    top: 30px;
+    padding-bottom: 20px;
+  }
 }
