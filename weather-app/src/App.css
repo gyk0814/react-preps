@@ -29,7 +29,7 @@ body {
     overflow: hidden;
   }
   .container {
-    height: 90dvh;
+    height: 90%;
     overflow: auto;
     position: absolute;
     padding-bottom: 30px;
