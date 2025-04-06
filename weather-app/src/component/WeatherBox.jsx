@@ -49,23 +49,13 @@ const color = (id) => {
   }
 };
 
-// const getWeatherImg = (id) => {
-//   return snow;
-// };
-
-const WeatherBox = ({ weather, air, setCity }) => {
+const WeatherBox = ({ weather, air, setCity, city }) => {
   return (
     <div className="container">
       <div className="main">
         <div className="header">
           {/* <h3 className="curloc">CURRENT LOCATION</h3> */}
-          <Button
-            className="curloc"
-            variant="primary"
-            onClick={() => setCity("")}
-          >
-            CURRENT LOCATION
-          </Button>
+          <h3 className="curloc">WEATHER</h3>
           <h3 className="more">Discover More Cities</h3>
         </div>
         <div className="current">
@@ -112,7 +102,7 @@ const WeatherBox = ({ weather, air, setCity }) => {
             </div>
           </div>
         </div>
-        <WeatherButton setCity={setCity} />
+        <WeatherButton setCity={setCity} selectedCity={city} />
       </div>
     </div>
   );

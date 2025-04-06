@@ -2,10 +2,9 @@ body {
   /* background: url(https://img.freepik.com/free-vector/gorgeous-clouds-background-with-blue-sky-design_1017-25501.jpg); */
   background: url(./assets/sky-with-white-clouds.jpg);
   background-size: cover;
-  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .container {
@@ -33,10 +32,9 @@ body {
     overflow: hidden;
   }
   .container {
-    height: 90dvh;
+    height: 110dvh;
     overflow: auto;
-    position: absolute;
-    padding-bottom: 30px;
+    position: relative;
     top: 40px;
   }
 

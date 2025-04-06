@@ -61,7 +61,7 @@ function App() {
           <ClipLoader color={"#000000"} loading={loading} size={150} />
         </div>
       ) : (
-        <WeatherBox weather={weather} air={air} setCity={setCity} />
+        <WeatherBox weather={weather} air={air} setCity={setCity} city={city} />
       )}
     </div>
   );
