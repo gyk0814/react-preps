@@ -11,6 +11,8 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
+
     if (city === "") {
       getCurrentLocation();
     } else {
@@ -19,7 +21,6 @@ function App() {
   }, [city]);
 
   const getWeatherByCity = async (city) => {
-    setLoading(true);
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7a9bde308f867bd0eb400d7bd4fea4d3&units=metric`;
 
     const response = await fetch(url);
@@ -39,13 +40,12 @@ function App() {
     });
   };
   const getWeatherByLocation = async (lon, lat) => {
-    setLoading(true);
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=7a9bde308f867bd0eb400d7bd4fea4d3&units=metric`;
     const response = await fetch(url);
     const data = await response.json();
     // console.log(data);
-    setLoading(false);
     setWeather(data);
+    setLoading(false);
   };
   const getAirPollutionByLocation = async (lon, lat) => {
     const url = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=7a9bde308f867bd0eb400d7bd4fea4d3`;
