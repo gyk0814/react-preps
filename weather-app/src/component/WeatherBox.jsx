@@ -1,10 +1,12 @@
 import React from "react";
 import "./WeatherBox.css";
-import Button from "react-bootstrap/Button";
+
 import sunny from "../assets/sunny copy.png";
 import cloudy from "../assets/cloudy.jpeg";
 import rain from "../assets/rainy.jpeg";
 import snow from "../assets/snow.jpg";
+import WeatherButton from "./WeatherButton";
+import Button from "react-bootstrap/Button";
 
 const getWeatherImg = (id) => {
   if (id >= 200 && id <= 531) {
@@ -51,12 +53,19 @@ const color = (id) => {
 //   return snow;
 // };
 
-const WeatherBox = ({ weather, air }) => {
+const WeatherBox = ({ weather, air, setCity }) => {
   return (
     <div className="container">
       <div className="main">
         <div className="header">
-          <h3 className="curloc">CURRENT LOCATION</h3>
+          {/* <h3 className="curloc">CURRENT LOCATION</h3> */}
+          <Button
+            className="curloc"
+            variant="primary"
+            onClick={() => setCity("")}
+          >
+            CURRENT LOCATION
+          </Button>
           <h3 className="more">Discover More Cities</h3>
         </div>
         <div className="current">
@@ -99,11 +108,7 @@ const WeatherBox = ({ weather, air }) => {
             </div>
           </div>
         </div>
-        <div className="moreloca">
-          <Button variant="primary"> Paris </Button>
-          <Button variant="primary"> New York </Button>
-          <Button variant="primary"> London </Button>
-        </div>
+        <WeatherButton setCity={setCity} />
       </div>
     </div>
   );

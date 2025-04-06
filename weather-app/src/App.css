@@ -23,13 +23,20 @@ body {
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 30px;
 }
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+  width: 100dvh;
+}
 
 @media (max-width: 600px) {
   .body {
     overflow: hidden;
   }
   .container {
-    height: 90%;
+    height: 90dvh;
     overflow: auto;
     position: absolute;
     padding-bottom: 30px;
