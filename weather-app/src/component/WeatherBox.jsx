@@ -71,7 +71,11 @@ const WeatherBox = ({ weather, air, setCity }) => {
         <div className="current">
           <h1 className="cityname">{weather?.name}</h1>
           <img src={getWeatherImg(weather?.weather[0].id)} alt="weather icon" />
-          <h1 className="temperature">{weather?.main.temp}°C</h1>
+          <h1 className="temperature">
+            {Math.round(weather?.main.temp)}°C /{" "}
+            {Math.round(weather?.main.temp * (9 / 5) + 32)}
+            °F
+          </h1>
           <h3 className="weather">{weather?.weather[0].description}</h3>
         </div>
         <div className="details">
