@@ -2,9 +2,9 @@ body {
   /* background: url(https://img.freepik.com/free-vector/gorgeous-clouds-background-with-blue-sky-design_1017-25501.jpg); */
   background: url(./assets/sky-with-white-clouds.jpg);
   background-size: cover;
+  height: 100dvh;
   display: flex;
   justify-content: center;
-  /* align-items: center; */
 }
 
 .container {
@@ -28,14 +28,15 @@ body {
 }
 
 @media (max-width: 600px) {
-  .body {
-    overflow: hidden;
+  body {
+    height: 100%;
   }
   .container {
-    height: 110dvh;
-    overflow: auto;
-    position: relative;
-    top: 40px;
+    height: 100%;
+    position: absolute;
+    overflow-y: scroll;
+    top: 0%;
+    left: 0%;
   }
 
   .main {
@@ -43,8 +44,8 @@ body {
     width: 90dvw;
     height: auto;
     position: absolute;
-    top: 30px;
     padding-bottom: 20px;
     color: black;
+    top: 10px;
   }
 }
