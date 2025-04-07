@@ -204,5 +204,6 @@
   .moreloca > Button {
     padding: 5px;
     background-color: white;
+    color: rgb(13, 110, 253);
   }
 }
