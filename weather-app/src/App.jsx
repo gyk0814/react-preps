@@ -25,8 +25,11 @@ function App() {
 
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data);
+    // console.log("weather: ", data);
+    const lat = data.coord.lat;
+    const lon = data.coord.lon;
     setWeather(data);
+    getAirPollutionByLocation(lon, lat);
     setLoading(false);
   };
 
@@ -42,7 +45,7 @@ function App() {
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=7a9bde308f867bd0eb400d7bd4fea4d3&units=metric`;
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     setWeather(data);
     setLoading(false);
   };
@@ -50,7 +53,7 @@ function App() {
     const url = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=7a9bde308f867bd0eb400d7bd4fea4d3`;
     const response = await fetch(url);
     const data = await response.json();
-    // console.log(data);
+    // console.log("air: ", data);
     setAir(data);
   };
 

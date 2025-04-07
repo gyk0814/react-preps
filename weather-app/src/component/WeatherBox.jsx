@@ -6,7 +6,6 @@ import cloudy from "../assets/cloudy.jpeg";
 import rain from "../assets/rainy.jpeg";
 import snow from "../assets/snow.jpg";
 import WeatherButton from "./WeatherButton";
-import Button from "react-bootstrap/Button";
 
 const getWeatherImg = (id) => {
   if (id >= 200 && id <= 531) {
@@ -54,7 +53,6 @@ const WeatherBox = ({ weather, air, setCity, city }) => {
     <div className="container">
       <div className="main">
         <div className="header">
-          {/* <h3 className="curloc">CURRENT LOCATION</h3> */}
           <h3 className="curloc">WEATHER</h3>
           <h3 className="more">Discover More Cities</h3>
         </div>
