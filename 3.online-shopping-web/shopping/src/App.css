@@ -1,0 +1,32 @@
+.logo {
+  background-color: #fcf9ee;
+  display: flex;
+  justify-content: center;
+}
+.navbar {
+  background-color: #fcf9ee;
+  padding: 1% 5%;
+  align-items: center;
+  width: 90%;
+}
+.icons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 30px;
+  align-items: flex-end;
+  font-size: 21px;
+  color: black;
+}
+.login > span {
+  font-size: medium;
+  font-weight: bold;
+}
+.login {
+  font-size: 21px;
+  color: black;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  width: 100%;
+  align-items: flex-end;
+}
