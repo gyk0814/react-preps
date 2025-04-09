@@ -1,7 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faHeart } from "@fortawesome/free-regular-svg-icons";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   const menuList = [
