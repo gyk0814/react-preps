@@ -23,7 +23,8 @@ const Navbar = () => {
           <input type="text" placeholder="Search for products" />
         </div>
         <div
-          style={{ display: "flex", justifyContent: "flex-end", gap: "30px" }}
+          className="icons"
+          // style={{ display: "flex", justifyContent: "flex-end", gap: "30px" }}
         >
           <div className="login">
             <span>Login</span>

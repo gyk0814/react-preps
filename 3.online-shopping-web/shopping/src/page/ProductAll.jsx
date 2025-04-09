@@ -7,7 +7,7 @@ const ProductAll = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       const response = await fetch(
-        "https://my-json-server.typicode.com/gyk0814/react-preps/3.online-shopping-web/shopping/products"
+        "https://my-json-server.typicode.com/gyk0814/react-preps/products"
       );
       const data = await response.json();
       console.log(data);
