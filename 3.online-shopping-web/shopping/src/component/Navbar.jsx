@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faHeart } from "@fortawesome/free-regular-svg-icons";
+import { useNavigate } from "react-router";
 
 const Navbar = () => {
   const menuList = [
@@ -11,6 +12,11 @@ const Navbar = () => {
     "맨즈",
     "선물하기",
   ];
+  const navigate = useNavigate();
+  const goToLogin = () => {
+    navigate("/login");
+  };
+
   return (
     <div className="navbar">
       <div className="topbar">
@@ -22,11 +28,8 @@ const Navbar = () => {
           />
           <input type="text" placeholder="Search for products" />
         </div>
-        <div
-          className="icons"
-          // style={{ display: "flex", justifyContent: "flex-end", gap: "30px" }}
-        >
-          <div className="login">
+        <div className="icons">
+          <div className="login" onClick={goToLogin}>
             <span>Login</span>
             <FontAwesomeIcon icon={faUser} />
           </div>
@@ -43,6 +46,7 @@ const Navbar = () => {
           style={{ width: "170px" }}
           src="https://media.elcompanies.com/images/e/estee-lauder-companies/universal/our-brands/jo-malone-london/jo-malone-london_black_1486x499_v3.png?h=499&iar=0&w=1486"
           alt="Shop Logo"
+          onClick={() => navigate("/")}
         />
       </div>
       <div>

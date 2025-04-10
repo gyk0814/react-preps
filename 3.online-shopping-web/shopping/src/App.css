@@ -30,6 +30,7 @@
   gap: 8px;
   width: fit-content;
   align-items: flex-end;
+  cursor: pointer;
 }
 .icons {
   display: flex;
@@ -68,10 +69,119 @@
 .product-all {
   background-color: #fcf9ee;
 }
+.title {
+  height: 100px;
+  padding: 1% 5%;
+  display: flex;
+  align-items: flex-end;
+  font-size: x-large;
+  font-family: "Nanum Myeongjo", PingFang, Times, "Times New Roman", serif;
+}
 .product-card > p {
   font-size: 14px;
   color: black;
   margin: 0;
+}
+
+.postcard-hover-scale {
+  transition: transform 0.3s ease;
+}
+.postcard-hover-scale:hover {
+  transform: scale(1.05);
+}
+.login-container {
+  height: 75vh;
+  width: 100%;
+  position: relative;
+  border-top: 1px solid rgba(128, 128, 128, 0.3);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+}
+.login-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  /* box-sizing: border-box; */
+}
+.login-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.login-form-container {
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  width: 37%;
+  height: 90%;
+}
+.login-buttons {
+  align-items: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 0px;
+}
+.button {
+  width: 60%;
+  font-size: 16px;
+  background-color: #fcf9ee;
+  padding: 6% 0% 3% 0%;
+  border: 0px;
+  border-radius: 0px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+  font-size: small;
+  color: rgba(128, 128, 128, 0.3);
+}
+.active {
+  /* background-color: #f0e6d2; */
+  border-bottom: 1px solid black;
+  color: black;
+}
+.button:hover {
+  border-color: inherit;
+}
+.login-form {
+  margin: 10% 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 70%;
+}
+.login-form > Form {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+.input-box,
+.submit-button {
+  border-radius: 0%;
+  height: 50px;
+  border-color: rgba(128, 128, 128, 0.3);
+}
+.submit-button {
+  background-color: #1c1c1c;
+}
+.find-pw {
+  font-size: 12px;
+  color: black;
+  text-align: start;
+  background-color: inherit;
+  border-bottom: 1px solid #1c1c1c;
+  width: fit-content;
+  padding: 0px;
+  border-radius: 0px;
+  margin-bottom: 20px;
+}
+.find-pw:hover,
+.find-pw:focus,
+.find-pw:focus-visible {
+  outline: none;
+  border-color: #fcf9ee;
+  border-bottom: 1px solid #1c1c1c; /* hover 시에도 동일한 border 유지 */
 }
 
 @media (max-width: 390px) {

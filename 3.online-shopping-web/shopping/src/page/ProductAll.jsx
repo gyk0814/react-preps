@@ -17,20 +17,26 @@ const ProductAll = () => {
     fetchProducts();
   }, []);
   return (
-    <div className="product-all">
-      <Container>
-        <Row>
-          {productList.map((product) => (
-            <Col sm={3} className="product-card">
-              <ProductCard key={product.id} product={product} />
-            </Col>
-          ))}
-        </Row>
-      </Container>
-      {/* {productList.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))} */}
-      {/* <br></br> */}
+    <div>
+      <video width="100%" autoPlay muted>
+        <source
+          src="https://www.jomalone.co.kr/media/export/cms/campaigns/FY25_JustBecause/25C08_Just-Because-Gifting.mp4"
+          type="video/mp4"
+        />
+        브라우저가 video 태그를 지원하지 않습니다.
+      </video>
+      <div className="product-all">
+        <div className="title">완벽한 선물</div>
+        <Container>
+          <Row>
+            {productList.map((product) => (
+              <Col sm={3} className="product-card postcard-hover-scale">
+                <ProductCard product={product} />
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </div>
     </div>
   );
 };

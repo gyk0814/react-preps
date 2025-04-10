@@ -7,7 +7,7 @@ import Login from "./page/Login";
 
 function App() {
   return (
-    <div>
+    <div className="app-body">
       <Navbar />
       <Routes>
         <Route index element={<ProductAll />} />
