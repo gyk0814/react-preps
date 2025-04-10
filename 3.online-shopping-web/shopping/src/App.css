@@ -219,4 +219,11 @@
     font-size: 12px;
     width: 120px;
   }
+  .title {
+    font-size: 1.3em;
+    padding-bottom: 20px;
+  }
+  .login-form-container {
+    width: 90%;
+  }
 }
