@@ -77,17 +77,29 @@
   font-size: x-large;
   font-family: "Nanum Myeongjo", PingFang, Times, "Times New Roman", serif;
 }
-.product-card > p {
+/* .product-card > p {
   font-size: 14px;
   color: black;
-  margin: 0;
-}
+  padding: 0 0 20px 0;
+} */
 
 .postcard-hover-scale {
   transition: transform 0.3s ease;
+  padding-bottom: 20px;
 }
 .postcard-hover-scale:hover {
   transform: scale(1.05);
+}
+
+.product-card > div {
+  font-size: 14px;
+  font-weight: 500;
+}
+.product-card > .choice {
+  height: 20px;
+  font-size: 13px;
+  color: rgba(85, 85, 85, 0.8);
+  font-weight: bold;
 }
 .login-container {
   height: 75vh;
@@ -133,6 +145,11 @@
   font-size: small;
   color: rgba(128, 128, 128, 0.3);
 }
+/* .test-container {
+  width: 40%;
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  padding: 0;
+} */
 .active {
   /* background-color: #f0e6d2; */
   border-bottom: 1px solid black;

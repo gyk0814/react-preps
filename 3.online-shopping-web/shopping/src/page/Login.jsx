@@ -1,14 +1,23 @@
 import React from "react";
 import { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Container } from "react-bootstrap";
+import { useNavigate } from "react-router";
 
-const Login = () => {
+const Login = ({ setAuthenticated }) => {
+  const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
+
+  const LoginUser = (event) => {
+    event.preventDefault();
+    setAuthenticated(true);
+    navigate("/");
+  };
 
   return (
     <div className="login-container">
       <div className="login-body">
         <div className="login-form-container">
+          {/* <Container className="test-container"> */}
           <div className="login-buttons">
             <button
               className={`button ${isLogin ? "active" : ""}`}
@@ -28,7 +37,7 @@ const Login = () => {
             </button>
           </div>
           <div className="login-form">
-            <Form>
+            <Form onSubmit={(e) => LoginUser(e)}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Control
                   className="input-box"
@@ -46,12 +55,21 @@ const Login = () => {
                   autoComplete="current-password"
                 />
               </Form.Group>
-              <button className="find-pw">비밀번호 찾기</button>
-              <Button className="submit-button">{`${
+              <button
+                className="find-pw"
+                type="button"
+                onClick={() => {
+                  alert("비밀번호를 찾아볼게요");
+                }}
+              >
+                비밀번호 찾기
+              </button>
+              <Button className="submit-button" type="submit">{`${
                 isLogin ? "로그인" : "계정 생성하기"
               }`}</Button>
             </Form>
           </div>
+          {/* </Container> */}
         </div>
       </div>
     </div>

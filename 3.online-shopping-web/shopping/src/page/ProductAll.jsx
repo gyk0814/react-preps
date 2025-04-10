@@ -29,8 +29,12 @@ const ProductAll = () => {
         <div className="title">완벽한 선물</div>
         <Container>
           <Row>
-            {productList.map((product) => (
-              <Col sm={3} className="product-card postcard-hover-scale">
+            {productList.map((product, index) => (
+              <Col
+                sm={3}
+                key={index}
+                className="product-card postcard-hover-scale"
+              >
                 <ProductCard product={product} />
               </Col>
             ))}
