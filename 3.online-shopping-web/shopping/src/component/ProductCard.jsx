@@ -6,9 +6,17 @@ const ProductCard = ({ product }) => {
   const productDetail = () => {
     navigate(`/product/${product?.id}`);
   };
+  const imgUrlFormatter = (code, num) => {
+    return `https://www.jomalone.co.kr/media/export/cms/products/1000x1000/jo_sku_${code}_1000x1000_${num}.png`;
+  };
+
   return (
     <div className="product-card" onClick={productDetail}>
-      <img className="product-img" src={product?.thumbnail[0]} alt="product" />
+      <img
+        className="product-img"
+        src={imgUrlFormatter(product?.code, 0)}
+        alt="product"
+      />
       <div className="choice">
         {product?.choice ? "베스트 셀러" : ""}
         {product?.choice && product?.new ? "      " : ""}

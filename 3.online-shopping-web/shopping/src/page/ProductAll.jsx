@@ -3,7 +3,7 @@ import ProductCard from "../component/ProductCard";
 import { Container, Row, Col } from "react-bootstrap";
 import { useSearchParams } from "react-router";
 
-const ProductAll = () => {
+const ProductAll = ({ imgUrlFormatter }) => {
   const [productList, setProductList] = useState([]);
   const [query, setQuery] = useSearchParams();
 
@@ -15,11 +15,11 @@ const ProductAll = () => {
         block: "start",
       });
     }
-    // const response = await fetch("http://localhost:4000/products?q=" + search);
-    const response = await fetch(
-      "https://my-json-server.typicode.com/gyk0814/react-preps/products?q=" +
-        search
-    );
+    const response = await fetch("http://localhost:4000/products?q=" + search);
+    // const response = await fetch(
+    //   "https://my-json-server.typicode.com/gyk0814/react-preps/products?q=" +
+    //     search
+    // );
     const data = await response.json();
     console.log(data);
     setProductList(data);
@@ -42,7 +42,10 @@ const ProductAll = () => {
           <Row id="scroll-target">
             {productList.map((product, index) => (
               <Col sm={3} key={index} className="postcard-hover-scale">
-                <ProductCard product={product} />
+                <ProductCard
+                  product={product}
+                  imgUrlFormatter={imgUrlFormatter}
+                />
               </Col>
             ))}
           </Row>

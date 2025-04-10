@@ -10,17 +10,17 @@ const ProductDetail = () => {
   const [product, setProduct] = useState(null);
   const [selectedImg, setSelectedImg] = useState(null);
   const [selectedOption, setSelectedOption] = useState(null);
+  const range = (n) => Array.from({ length: n }, (_, i) => i);
+  const imgUrlFormatter = (code, num) => {
+    return `https://www.jomalone.co.kr/media/export/cms/products/1000x1000/jo_sku_${code}_1000x1000_${num}.png`;
+  };
 
   const getProductDetail = async () => {
-    const response = await fetch(
-      `https://my-json-server.typicode.com/gyk0814/react-preps/products/${id}`
-    );
+    const response = await fetch(`http://localhost:4000/products/${id}`);
     const data = await response.json();
     setProduct(data);
-    setSelectedImg(data?.img[0]);
+    setSelectedImg(imgUrlFormatter(data?.code, 0));
     setSelectedOption(data?.options[0]);
-    console.log("data", data);
-    console.log("product", product?.img[0]);
   };
   useEffect(() => {
     getProductDetail();
@@ -36,15 +36,19 @@ const ProductDetail = () => {
       </div>
       <div className="detail-container">
         <div className="img-options">
-          {product?.img.map((item, index) => (
-            <div
-              key={index}
-              className={`small-img ${selectedImg === item ? "selected" : ""}`}
-              onClick={() => setSelectedImg(item)}
-            >
-              <img style={{ width: "100%" }} draggable="false" src={item} />
-            </div>
-          ))}
+          {range(product?.img_num).map((i) => {
+            const url = imgUrlFormatter(product?.code, i);
+            console.log("url", url);
+            return (
+              <div
+                key={i}
+                className={`small-img ${selectedImg === url ? "selected" : ""}`}
+                onClick={() => setSelectedImg(url)}
+              >
+                <img style={{ width: "100%" }} draggable="false" src={url} />
+              </div>
+            );
+          })}
         </div>
         <div className="detail-img-box">
           <img className="detail-img" draggable="false" src={selectedImg} />

@@ -23,7 +23,7 @@ function App() {
         inputRef={inputRef}
       />
       <Routes>
-        <Route index element={<ProductAll />} />
+        <Route index element={<ProductAll />} i />
         <Route
           path="/product/:id"
           element={<PrivateRoute authenticated={authenticated} />}
