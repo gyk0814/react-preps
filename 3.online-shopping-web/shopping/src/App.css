@@ -340,6 +340,13 @@ input:focus {
   font-family: "Noto Sans KR", PingFang, Helvetica, Arial, sans-serif;
   font-weight: 400;
 }
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  width: 100%;
+}
 @media (max-width: 390px) {
   .icons {
     gap: 15px;

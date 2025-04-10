@@ -15,11 +15,11 @@ const ProductAll = ({ imgUrlFormatter }) => {
         block: "start",
       });
     }
-    const response = await fetch("http://localhost:4000/products?q=" + search);
-    // const response = await fetch(
-    //   "https://my-json-server.typicode.com/gyk0814/react-preps/products?q=" +
-    //     search
-    // );
+    // const response = await fetch("http://localhost:4000/products?q=" + search);
+    const response = await fetch(
+      "https://my-json-server.typicode.com/gyk0814/react-preps/products?q=" +
+        search
+    );
     const data = await response.json();
     console.log(data);
     setProductList(data);
