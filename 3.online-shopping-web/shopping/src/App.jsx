@@ -1,8 +1,7 @@
 import { Route, Routes } from "react-router";
 import "./App.css";
-import Navbar from "./component/Navbar";
+import MainNavbar from "./component/MainNavbar";
 import ProductAll from "./page/ProductAll";
-import ProductDetails from "./page/ProductDetail";
 import Login from "./page/Login";
 import { useEffect, useState } from "react";
 import PrivateRoute from "./route/PrivateRoute";
@@ -17,7 +16,7 @@ function App() {
   }, [authenticated]);
   return (
     <div className="app-body">
-      <Navbar
+      <MainNavbar
         authenticated={authenticated}
         setAuthenticated={setAuthenticated}
         inputRef={inputRef}
