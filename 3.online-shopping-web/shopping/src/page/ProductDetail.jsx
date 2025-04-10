@@ -12,7 +12,9 @@ const ProductDetail = () => {
   const [selectedOption, setSelectedOption] = useState(null);
 
   const getProductDetail = async () => {
-    const response = await fetch(`http://localhost:4000/products/${id}`);
+    const response = await fetch(
+      `https://my-json-server.typicode.com/gyk0814/react-preps/products/${id}`
+    );
     const data = await response.json();
     setProduct(data);
     setSelectedImg(data?.img[0]);
