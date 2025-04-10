@@ -64,9 +64,9 @@ const Login = ({ setAuthenticated }) => {
               >
                 비밀번호 찾기
               </button>
-              <Button className="submit-button" type="submit">{`${
-                isLogin ? "로그인" : "계정 생성하기"
-              }`}</Button>
+              <Button className="submit-button" type="submit">
+                {isLogin ? "로그인" : "계정 생성하기"}
+              </Button>
             </Form>
           </div>
           {/* </Container> */}

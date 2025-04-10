@@ -14,7 +14,10 @@ function App() {
   }, [authenticated]);
   return (
     <div className="app-body">
-      <Navbar />
+      <Navbar
+        authenticated={authenticated}
+        setAuthenticated={setAuthenticated}
+      />
       <Routes>
         <Route index element={<ProductAll />} />
         <Route
