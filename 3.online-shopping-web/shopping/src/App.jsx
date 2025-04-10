@@ -6,9 +6,12 @@ import ProductDetails from "./page/ProductDetail";
 import Login from "./page/Login";
 import { useEffect, useState } from "react";
 import PrivateRoute from "./route/PrivateRoute";
+import { useRef } from "react";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
+  const inputRef = useRef(null);
+
   useEffect(() => {
     console.log("authenticated", authenticated);
   }, [authenticated]);
@@ -17,6 +20,7 @@ function App() {
       <Navbar
         authenticated={authenticated}
         setAuthenticated={setAuthenticated}
+        inputRef={inputRef}
       />
       <Routes>
         <Route index element={<ProductAll />} />

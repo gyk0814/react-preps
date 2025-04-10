@@ -20,6 +20,16 @@ const Navbar = ({ authenticated, setAuthenticated }) => {
     } else navigate("/login");
   };
 
+  const search = (event) => {
+    if (event.key === "Enter") {
+      const searchValue = event.target.value;
+
+      if (searchValue) {
+        navigate(`/?q=${searchValue}`);
+      }
+      inputRef.current?.blur();
+    }
+  };
   return (
     <div className="navbar">
       <div className="topbar">
@@ -29,7 +39,11 @@ const Navbar = ({ authenticated, setAuthenticated }) => {
             src="https://static-00.iconduck.com/assets.00/search-icon-2048x2048-cmujl7en.png"
             alt="search"
           />
-          <input type="text" placeholder="Search for products" />
+          <input
+            type="text"
+            placeholder="Search for products"
+            onKeyDown={search}
+          />
         </div>
         <div className="icons">
           <div className="login" onClick={goToLogin}>
@@ -46,7 +60,7 @@ const Navbar = ({ authenticated, setAuthenticated }) => {
       </div>
       <div className="logo">
         <img
-          style={{ width: "170px" }}
+          style={{ width: "170px", cursor: "pointer" }}
           src="https://media.elcompanies.com/images/e/estee-lauder-companies/universal/our-brands/jo-malone-london/jo-malone-london_black_1486x499_v3.png?h=499&iar=0&w=1486"
           alt="Shop Logo"
           onClick={() => navigate("/")}

@@ -1,21 +1,31 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "../component/ProductCard";
 import { Container, Row, Col } from "react-bootstrap";
+import { useSearchParams } from "react-router";
 
 const ProductAll = () => {
   const [productList, setProductList] = useState([]);
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const response = await fetch(
-        "https://my-json-server.typicode.com/gyk0814/react-preps/products"
-      );
-      const data = await response.json();
-      console.log(data);
-      setProductList(data);
-    };
+  const [query, setQuery] = useSearchParams();
 
+  const fetchProducts = async () => {
+    const search = query.get("q") || "";
+    if (search !== "") {
+      document.getElementById("scroll-target")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+    const response = await fetch("http://localhost:4000/products?q=" + search);
+    // const response = await fetch(
+    //   "https://my-json-server.typicode.com/gyk0814/react-preps/products"
+    // );
+    const data = await response.json();
+    console.log(data);
+    setProductList(data);
+  };
+  useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [query]);
   return (
     <div>
       <video width="100%" autoPlay muted>
@@ -27,14 +37,10 @@ const ProductAll = () => {
       </video>
       <div className="product-all">
         <div className="title">완벽한 선물</div>
-        <Container>
-          <Row>
+        <Container className="product-all-container">
+          <Row id="scroll-target">
             {productList.map((product, index) => (
-              <Col
-                sm={3}
-                key={index}
-                className="product-card postcard-hover-scale"
-              >
+              <Col sm={3} key={index} className="postcard-hover-scale">
                 <ProductCard product={product} />
               </Col>
             ))}
