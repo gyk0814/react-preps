@@ -29,7 +29,7 @@ const ProductAll = ({ imgUrlFormatter }) => {
   }, [query]);
   return (
     <div>
-      <video width="100%" autoPlay muted>
+      <video width="100%" autoPlay muted playsInline loop>
         <source
           src="https://www.jomalone.co.kr/media/export/cms/campaigns/FY25_JustBecause/25C08_Just-Because-Gifting.mp4"
           type="video/mp4"

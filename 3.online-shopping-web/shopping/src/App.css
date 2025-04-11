@@ -79,6 +79,7 @@
   background-color: #fcf9ee;
   font-size: 14px;
   width: 155px;
+  color: #1c1c1c;
 }
 .search:focus-within {
   outline: 1.2px solid black;
@@ -228,6 +229,9 @@ input:focus {
   height: 50px;
   border-color: rgba(128, 128, 128, 0.3);
 }
+.input-box:focus {
+  box-shadow: none;
+}
 .submit-button {
   background-color: #1c1c1c;
 }
@@ -319,6 +323,7 @@ input:focus {
 .option-btn {
   background-color: #fcf9ee;
   border: 1px solid black;
+  color: black;
   border-radius: 0px;
   padding: 9px 24px;
   font-size: 12px;
@@ -377,9 +382,13 @@ input:focus {
   }
   .img-options {
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 10px;
+  }
+  .small-img {
+    width: 25%;
+    height: auto;
   }
   .container-fluid {
     padding: 0px;
