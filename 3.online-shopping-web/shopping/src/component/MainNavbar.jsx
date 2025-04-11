@@ -24,11 +24,12 @@ const MainNavbar = ({ authenticated, setAuthenticated }) => {
   const search = (event) => {
     if (event.key === "Enter") {
       const searchValue = event.target.value;
-
+      console.log("searchValue", searchValue);
       if (searchValue) {
         navigate(`/?q=${searchValue}`);
+      } else {
+        navigate("/?q=");
       }
-      inputRef.current?.blur();
     }
   };
   return (

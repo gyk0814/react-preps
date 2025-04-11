@@ -9,7 +9,6 @@ import { useRef } from "react";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
-  const inputRef = useRef(null);
 
   useEffect(() => {
     console.log("authenticated", authenticated);
@@ -19,7 +18,6 @@ function App() {
       <MainNavbar
         authenticated={authenticated}
         setAuthenticated={setAuthenticated}
-        inputRef={inputRef}
       />
       <Routes>
         <Route index element={<ProductAll />} i />
