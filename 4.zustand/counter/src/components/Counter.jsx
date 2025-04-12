@@ -1,5 +1,5 @@
 import React from "react";
-import useCounterStore from "../stores/CounterStore";
+import useCounterStore from "../stores/counterStore";
 
 const Counter = () => {
   const { number, increment, decrement, value, setValue } = useCounterStore();
