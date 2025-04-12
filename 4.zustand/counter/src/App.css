@@ -24,4 +24,46 @@
   align-items: center;
   flex-direction: row;
   width: 100%;
+  align-self: center;
+}
+
+.btn:hover,
+button:hover {
+  background-color: rgba(17, 15, 15, 0.8);
+  color: white;
+}
+
+#input {
+  height: 30px;
+  width: 60px;
+  font-size: 18px;
+  text-align: center;
+}
+img {
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+}
+.setting {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+}
+.count > button {
+  font-size: 20px;
+}
+.gradient-text {
+  font-style: italic;
+  background: linear-gradient(
+    to right,
+    black,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.6),
+    gray
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
