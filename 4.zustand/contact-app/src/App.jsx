@@ -40,7 +40,7 @@ function App() {
         maxWidth="xs"
         disableGutters
         sx={{
-          height: "90vh",
+          height: "90%",
           width: "95%",
           // border: "1px solid #ccc",
           borderRadius: "24px",

@@ -5,3 +5,9 @@
   background-attachment: fixed;
   background-position: center;
 }
+
+@media (max-width: 420px) {
+  .bg {
+    background-image: none;
+  }
+}
