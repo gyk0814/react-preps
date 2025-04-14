@@ -25,6 +25,7 @@ function App() {
 
   return (
     <Box
+      className="bg"
       sx={{
         height: "100dvh",
         width: "100%",
@@ -40,13 +41,15 @@ function App() {
         disableGutters
         sx={{
           height: "90vh",
-          border: "1px solid #ccc",
+          width: "95%",
+          // border: "1px solid #ccc",
           borderRadius: "24px",
           overflow: "hidden",
           backgroundColor: "#fff",
           display: "flex",
           flexDirection: "column",
           position: "relative",
+          boxShadow: 5,
         }}
       >
         {showNewContact && (
@@ -61,7 +64,11 @@ function App() {
           <Grid
             item
             padding={3}
-            sx={{ display: "flex", flexDirection: "row", gap: 1 }}
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              gap: 1,
+            }}
           >
             <Typography variant="h4">Contacts</Typography>
             <PetsIcon
