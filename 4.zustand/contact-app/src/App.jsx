@@ -1,16 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
-import {
-  Box,
-  Container,
-  Grid,
-  Typography,
-  InputBase,
-  Divider,
-  Dialog,
-} from "@mui/material";
+import { Box, Container, Grid, Typography, InputBase } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import AddIcon from "@mui/icons-material/Add";
 import ContactList from "./components/ContactList";
 import ContactForm from "./components/ContactForm";
@@ -19,8 +10,17 @@ import usePhonebookStore from "./stores/usePhonebookStore";
 function App() {
   const { contacts, filteredContacts, addFilteredContacts } =
     usePhonebookStore();
-  const [newContact, setNewContact] = useState(false);
+  const [showNewContact, setShowNewContact] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [displayedContacts, setDisplayedContacts] = useState(contacts);
+
+  useEffect(() => {
+    if (searchTerm !== "") {
+      setDisplayedContacts(filteredContacts);
+    } else {
+      setDisplayedContacts(contacts);
+    }
+  }, [filteredContacts, contacts]);
 
   return (
     <Box
@@ -48,7 +48,9 @@ function App() {
           position: "relative",
         }}
       >
-        {newContact && <ContactForm onClose={() => setNewContact(false)} />}
+        {showNewContact && (
+          <ContactForm onClose={() => setShowNewContact(false)} />
+        )}
         <Grid
           container
           direction="column"
@@ -72,11 +74,6 @@ function App() {
             }}
           >
             <Box
-              component="form"
-              onSubmit={(e) => {
-                e.preventDefault();
-                addFilteredContacts(searchTerm);
-              }}
               sx={{
                 display: "flex",
                 alignItems: "center",
@@ -92,7 +89,10 @@ function App() {
                 placeholder="Search…"
                 fullWidth
                 value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                onChange={(e) => {
+                  addFilteredContacts(e.target.value);
+                  setSearchTerm(e.target.value);
+                }}
                 sx={{
                   fontSize: "1rem",
                 }}
@@ -101,7 +101,7 @@ function App() {
             <AddIcon
               fontSize="large"
               color="action"
-              onClick={() => setNewContact(true)}
+              onClick={() => setShowNewContact(true)}
             />
           </Grid>
         </Grid>
@@ -111,7 +111,9 @@ function App() {
           alignItems="flex-start"
           justifyContent="center"
         >
-          <ContactList />
+          {displayedContacts.map((contact, index) => (
+            <ContactList key={index} contact={contact} />
+          ))}
         </Grid>
       </Container>
     </Box>

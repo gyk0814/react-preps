@@ -7,16 +7,16 @@ const usePhonebookStore = create((set) => ({
     { id: 1, name: "Jane Smith", phoneNumber: "987-654-3210" },
   ],
   filteredContacts: [],
-  id: 0,
+  id: 2,
   addFilteredContacts: (searchTerm) =>
     set((state) => ({
       filteredContacts: state.contacts.filter((contact) =>
         contact.name.toLowerCase().includes(searchTerm.toLowerCase())
       ),
     })),
-  addContact: (name, phoneNumber) =>
+  addContact: (name, phoneNumber, img) =>
     set((state) => ({
-      contacts: [...state.contacts, { id: state.id, name, phoneNumber }],
+      contacts: [...state.contacts, { id: state.id, name, phoneNumber, img }],
       id: state.id + 1,
     })),
   removeContact: (id) =>
