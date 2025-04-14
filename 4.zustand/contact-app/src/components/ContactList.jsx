@@ -15,12 +15,11 @@ const ContactList = ({ contact }) => {
         className="contact-item"
         item
         key={contact.id}
-        padding={1}
+        padding={0.7}
         paddingLeft={3}
         display="flex"
         flexDirection="row"
         alignItems="center"
-        gap={2}
         justifyContent="space-between"
         sx={{
           width: "100%",
@@ -40,7 +39,7 @@ const ContactList = ({ contact }) => {
                 ? contact.img
                 : profileImage[contact.id % profileImage.length]
             }
-            sx={{ width: 45, height: 45 }}
+            sx={{ width: 50, height: 50 }}
           />
 
           <Typography variant="h5">{contact.name}</Typography>

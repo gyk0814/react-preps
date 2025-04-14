@@ -6,6 +6,7 @@ import AddIcon from "@mui/icons-material/Add";
 import ContactList from "./components/ContactList";
 import ContactForm from "./components/ContactForm";
 import usePhonebookStore from "./stores/usePhonebookStore";
+import PetsIcon from "@mui/icons-material/Pets";
 
 function App() {
   const { contacts, filteredContacts, addFilteredContacts } =
@@ -57,8 +58,17 @@ function App() {
           alignItems="flex-start"
           justifyContent="center"
         >
-          <Grid item padding={3}>
+          <Grid
+            item
+            padding={3}
+            sx={{ display: "flex", flexDirection: "row", gap: 1 }}
+          >
             <Typography variant="h4">Contacts</Typography>
+            <PetsIcon
+              fontSize="medium"
+              color="action"
+              sx={{ alignSelf: "center" }}
+            />
           </Grid>
           <Grid
             item
