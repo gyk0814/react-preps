@@ -8,7 +8,7 @@ const usePhonebookStore = create((set) => ({
   contacts: [
     { id: 0, name: "Luca", phoneNumber: "010-1004-1004", img: luca },
     { id: 1, name: "저희 고영희", phoneNumber: "987-654-3210", img: luca2 },
-    { id: 2, name: "루카입니다❤️", phoneNumber: "010-1234-5678", img: luca3 },
+    { id: 2, name: "루카입니다😊", phoneNumber: "010-1234-5678", img: luca3 },
   ],
   filteredContacts: [],
   id: 3,

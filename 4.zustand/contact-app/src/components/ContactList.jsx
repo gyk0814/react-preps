@@ -22,6 +22,7 @@ const ContactList = ({ contact }) => {
         alignItems="center"
         justifyContent="space-between"
         sx={{
+          overflow: "auto",
           width: "100%",
           "&:hover .delete-icon": {
             visibility: "visible",
