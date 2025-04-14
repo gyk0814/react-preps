@@ -14,9 +14,14 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import AddIcon from "@mui/icons-material/Add";
 import ContactList from "./components/ContactList";
 import ContactForm from "./components/ContactForm";
+import usePhonebookStore from "./stores/usePhonebookStore";
 
 function App() {
+  const { contacts, filteredContacts, addFilteredContacts } =
+    usePhonebookStore();
   const [newContact, setNewContact] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+
   return (
     <Box
       sx={{
@@ -67,6 +72,11 @@ function App() {
             }}
           >
             <Box
+              component="form"
+              onSubmit={(e) => {
+                e.preventDefault();
+                addFilteredContacts(searchTerm);
+              }}
               sx={{
                 display: "flex",
                 alignItems: "center",
@@ -81,6 +91,8 @@ function App() {
               <InputBase
                 placeholder="Search…"
                 fullWidth
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
                 sx={{
                   fontSize: "1rem",
                 }}

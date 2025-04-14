@@ -4,35 +4,52 @@ import usePhonebookStore from "../stores/usePhonebookStore";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 const ContactList = () => {
-  const { contacts, id, addContact, removeContact } = usePhonebookStore();
+  const { contacts, filteredContacts, removeContact } = usePhonebookStore();
+  const displayedContacts =
+    filteredContacts.length > 0 ? filteredContacts : contacts;
   return (
     <>
-      {contacts.map((contact) => (
-        <>
-          <Grid
-            item
-            key={contact.id}
-            padding={1}
-            paddingLeft={3}
-            display="flex"
-            flexDirection="row"
-            alignItems="center"
-            gap={2}
-            sx={{ width: "100%" }}
-          >
+      {displayedContacts.map((contact) => (
+        <Grid
+          className="contact-item"
+          item
+          key={contact.id}
+          padding={1}
+          paddingLeft={3}
+          display="flex"
+          flexDirection="row"
+          alignItems="center"
+          gap={2}
+          justifyContent="space-between"
+          sx={{
+            width: "100%",
+            "&:hover .delete-icon": {
+              visibility: "visible",
+            },
+          }}
+        >
+          <Box display="flex" alignItems="center" gap={2}>
             <Avatar
               alt="User Profile"
-              src="https://via.placeholder.com/150" // 이미지 URL
-              sx={{ width: 40, height: 40 }} // 사이즈 조절
+              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" // 이미지 URL
+              sx={{ width: 45, height: 45 }}
             />
 
             <Typography variant="h6">{contact.name}</Typography>
             <Typography variant="body2" color="textSecondary">
               {contact.phoneNumber}
             </Typography>
-          </Grid>
-          <DeleteIcon color="error" onClick={() => removeContact(contact.id)} />
-        </>
+          </Box>
+          <DeleteIcon
+            className="delete-icon"
+            color="error"
+            onClick={() => removeContact(contact.id)}
+            sx={{
+              visibility: "hidden",
+              cursor: "pointer",
+            }}
+          />
+        </Grid>
       ))}
     </>
   );
