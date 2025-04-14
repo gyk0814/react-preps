@@ -32,7 +32,7 @@ function App() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        overflow: "scroll",
+        overflow: "hidden",
         backgroundColor: "#f0f0f0",
       }}
     >
@@ -42,7 +42,6 @@ function App() {
         sx={{
           height: "90%",
           width: "95%",
-          // border: "1px solid #ccc",
           borderRadius: "24px",
           overflow: "hidden",
           backgroundColor: "#fff",
@@ -127,6 +126,7 @@ function App() {
           direction="column"
           alignItems="flex-start"
           justifyContent="center"
+          sx={{ overflowY: "scroll" }}
         >
           {displayedContacts.map((contact, index) => (
             <ContactList key={index} contact={contact} />
