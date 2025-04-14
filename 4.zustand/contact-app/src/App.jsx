@@ -27,7 +27,7 @@ function App() {
     <Box
       className="bg"
       sx={{
-        height: "100dvh",
+        height: "100%",
         width: "100%",
         display: "flex",
         alignItems: "center",
