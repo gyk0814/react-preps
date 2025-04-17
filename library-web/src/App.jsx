@@ -37,7 +37,7 @@ function App() {
     <div>
       <Navbar />
       <Routes>
-        <Route index element={<Main />} />
+        <Route index element={<Main isLoading={isLoading} />} />
         <Route path="/my-books" element={<Books />} />
         <Route path="/login" element={<Login />} />
       </Routes>

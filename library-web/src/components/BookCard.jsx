@@ -3,12 +3,14 @@ import useBookStore from "../stores/BookStores";
 
 const BookCard = (book) => {
   return (
-    <div>
-      <div>
-        <img src="https://via.placeholder.com/150" alt="Book Cover" />
-      </div>
-      <div>{book?.title}</div>
-      <div>{book?.author}</div>
+    <div className="book-card">
+      <img
+        className="book-cover"
+        src="https://neelkanthpublishers.com/assets/bookcover_cover.png"
+        alt="Book Cover"
+      />
+      <div>{book?.title}타이틀</div>
+      <div>{book?.author}작가</div>
     </div>
   );
 };
