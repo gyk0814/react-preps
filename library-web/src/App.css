@@ -1,0 +1,46 @@
+.navbar {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 10dvh;
+  align-items: center;
+  color: rgb(27, 59, 54);
+  padding: 0 50px;
+}
+.navbar-list > div {
+  cursor: pointer;
+}
+.navbar > h3 {
+  margin-left: 50px;
+}
+
+.navbar-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 0px 20px;
+  list-style-type: none;
+  width: 20%;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 30vh;
+  background-color: rgb(27, 59, 54);
+  color: rgb(230, 200, 140);
+  padding: 0 50px;
+}
+.header-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+.search-bar {
+  width: 50%;
+}
