@@ -1,3 +1,26 @@
+.dropdown-menu.show {
+  right: -20px;
+  top: 50px;
+  left: auto;
+}
+#navbarScrollingDropdown {
+  padding: 0px;
+}
+#navbarScrollingDropdown > img {
+  margin-right: 8px;
+  border-radius: 10%;
+}
+.navbar-brand > img {
+  width: 100px;
+  margin-right: 20px;
+}
+.nav {
+  background-color: black !important;
+}
+a.nav-link {
+  color: white;
+}
+
 @media (max-width: 991px) {
   .navbar-toggler {
     position: absolute !important;

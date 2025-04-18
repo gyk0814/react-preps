@@ -4,4 +4,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   height: 100dvh;
+  width: 100dvw;
+  background-color: black !important;
+  color: white !important;
 }
