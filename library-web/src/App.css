@@ -45,18 +45,28 @@
   width: 50%;
 }
 .book-cover {
-  width: 140px;
-  height: 200px;
+  height: 180px;
+  width: 100%;
   border: none;
+  object-fit: cover;
+  border-radius: 10px 10px 0px 0px;
 }
 .book-card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background-color: white;
   border-radius: 10px;
   border: 1px solid rgb(27, 59, 54);
-  padding: 20px;
-  margin: 10px;
+  margin: 20px 0px;
+  /* height: 300px; */
+}
+
+.book-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  padding: 10px 10px 35px 15px;
+  height: 110px;
+  font-size: small;
 }

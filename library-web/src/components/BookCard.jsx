@@ -10,8 +10,10 @@ const BookCard = ({ book }) => {
         src="https://neelkanthpublishers.com/assets/bookcover_cover.png"
         alt="Book Cover"
       />
-      <div>{book?.title}</div>
-      <div>{book?.author}</div>
+      <div className="book-info">
+        <div>{book?.title}</div>
+        <div>{book?.author}</div>
+      </div>
     </div>
   );
 };
