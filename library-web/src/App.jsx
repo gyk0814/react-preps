@@ -17,7 +17,6 @@ function App() {
   const { isLoading, data, isError, error } = useQuery({
     queryKey: ["books"],
     queryFn: fetchBooks,
-    retry: 1,
     select: (data) => {
       return data.data.works.map((book) => ({
         title: book.title,
@@ -37,7 +36,7 @@ function App() {
     <div>
       <Navbar />
       <Routes>
-        <Route index element={<Main isLoading={isLoading} />} />
+        <Route index element={<Main />} />
         <Route path="/my-books" element={<Books />} />
         <Route path="/login" element={<Login />} />
       </Routes>
