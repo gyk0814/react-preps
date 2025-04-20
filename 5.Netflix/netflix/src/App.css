@@ -31,6 +31,48 @@ a.nav-link:focus {
   .navbar-toggler {
     position: absolute !important;
     top: 15px;
-    left: 140px;
+    left: 200px;
+  }
+}
+
+@media (max-width: 430px) {
+  .container-fluid {
+    margin: 2px !important;
+  }
+  a.navbar-brand,
+  a.navbar-brand > * {
+    margin: 0px !important;
+  }
+  .banner-text {
+    width: 100%;
+    padding: 2rem;
+    animation: growAndReturnMobile 3s ease-in-out;
+    transform-origin: bottom left; /* 애니메이션 기준점을 오른쪽 위로 설정 */
+  }
+  .banner-text h1 {
+    font-size: 2.5rem;
+  }
+  .navbar-nav {
+    justify-content: center;
+    gap: 8px !important;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+  .form-control {
+    width: 100px;
+    display: none;
+  }
+  .bi-search:focus {
+    .form-control {
+      display: block;
+    }
+  }
+  .navbar-toggler {
+    top: 13px;
+    left: 130px;
+  }
+  .navbar-nav-scroll {
+    position: relative;
   }
 }
