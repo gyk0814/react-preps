@@ -30,8 +30,23 @@ a.nav-link:focus {
 @media (max-width: 991px) {
   .navbar-toggler {
     position: absolute !important;
-    top: 15px;
+    top: 10px;
     left: 200px;
+  }
+  .navbar-nav {
+    justify-content: center;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+  .navbar-nav-scroll {
+    position: relative;
+  }
+  .dropdown-menu.show {
+    z-index: 3;
+    position: absolute;
+    top: inherit;
+    right: 0;
   }
 }
 
@@ -75,4 +90,10 @@ a.nav-link:focus {
   .navbar-nav-scroll {
     position: relative;
   }
+  /* .dropdown-menu.show {
+    z-index: 3;
+    position: absolute;
+    top: inherit;
+    right: 0;
+  } */
 }

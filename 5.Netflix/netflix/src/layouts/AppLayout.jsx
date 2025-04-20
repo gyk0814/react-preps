@@ -94,7 +94,7 @@ const AppLayout = () => {
             </Nav>
           </Navbar.Collapse>
           <Nav className="d-flex my-2 flex-row gap-5">
-            <Form className="d-flex">
+            <Form className="d-flex" onSubmit={(e) => e.preventDefault()}>
               <Form.Control
                 type="search"
                 placeholder="Search"
