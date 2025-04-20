@@ -16,11 +16,17 @@
 }
 .nav {
   background-color: black !important;
+  font-size: 14px;
+  font-weight: 300;
+  font-family: "Open-sans", sans-serif;
 }
 a.nav-link {
+  color: #e5e5e5;
+}
+a.nav-link:focus {
+  font-weight: 400;
   color: white;
 }
-
 @media (max-width: 991px) {
   .navbar-toggler {
     position: absolute !important;

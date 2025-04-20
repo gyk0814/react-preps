@@ -7,6 +7,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { useNavigate } from "react-router";
+import { useTrendingMoviesQuery } from "../hooks/useTrendingMovies";
 
 const AppLayout = () => {
   const navList = [
@@ -17,6 +18,7 @@ const AppLayout = () => {
     "My List",
     "Browse by Languages",
   ];
+
   const dropdownList = [
     "Manage Profiles",
     "Transfer Profile",
@@ -81,7 +83,11 @@ const AppLayout = () => {
               navbarScroll
             >
               {navList.map((item, index) => (
-                <Nav.Link key={index} onClick={() => navigateTo(item)}>
+                <Nav.Link
+                  className="mx-1"
+                  key={index}
+                  onClick={() => navigateTo(item)}
+                >
                   {item}
                 </Nav.Link>
               ))}
