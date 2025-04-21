@@ -17,7 +17,7 @@ const responsive = {
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 2,
+    items: 1,
     // slidesToSlide: 1, // optional, default to 1.
   },
 };
@@ -42,7 +42,7 @@ const MovieCarousel = ({ listTitle, useQuery, autoPlay }) => {
         containerClass="carousel-container"
         dotListClass="custom-dot-list-style"
         autoPlay={autoPlay}
-        autoPlaySpeed={1000}
+        autoPlaySpeed={1500}
         rewind={true}
         rewindWithAnimation={true}
         itemClass="carousel-item-padding-10-px"
