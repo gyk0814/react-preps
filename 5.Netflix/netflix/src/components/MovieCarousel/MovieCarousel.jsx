@@ -60,9 +60,10 @@ const MovieCarousel = ({ listTitle, useQuery, autoPlay }) => {
         dotListClass="custom-dot-list-style"
         autoPlay={autoPlay}
         autoPlaySpeed={1500}
-        rewind={true}
-        rewindWithAnimation={true}
-        itemClass="carousel-item-padding-10-px"
+        {...(!autoPlay && {
+          rewind: true,
+          rewindWithAnimation: false,
+        })}
         sliderClass="slider"
       >
         {data?.map((movie, index) => (
