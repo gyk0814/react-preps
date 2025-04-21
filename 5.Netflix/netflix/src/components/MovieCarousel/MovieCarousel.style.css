@@ -30,6 +30,7 @@
   right: 0px;
   z-index: 0;
 }
+
 .slider {
   height: 70%;
   width: 100%;
@@ -41,5 +42,8 @@
 @media (max-width: 430px) {
   .outer-div {
     padding-bottom: 3rem;
+  }
+  .react-multiple-carousel__arrow {
+    width: 40px;
   }
 }

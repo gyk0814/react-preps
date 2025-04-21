@@ -7,6 +7,14 @@ import Badge from "react-bootstrap/Badge";
 const MovieCard = ({ movie }) => {
   const [like, setLike] = useState(false);
 
+  const handleTitle = (title) => {
+    if (title.length > 10) {
+      return <div className="title title-small">{title}</div>;
+    } else {
+      return <div className="title">{title}</div>;
+    }
+    return title;
+  };
   return (
     <div
       className="movie-card"
@@ -15,9 +23,7 @@ const MovieCard = ({ movie }) => {
       }}
     >
       <div className="overlay">
-        <div className="trailer">
-          <div className="title">{movie.title || movie.name}</div>
-        </div>
+        <div className="trailer">{handleTitle(movie.title || movie.name)}</div>
         <div className="p-3 info">
           <div className="d-flex flex-row gap-3 justify-content-between">
             <Button variant="light" className="w-50">

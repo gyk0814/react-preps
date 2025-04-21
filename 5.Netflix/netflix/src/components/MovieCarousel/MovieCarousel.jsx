@@ -2,28 +2,45 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import React from "react";
 import MovieCard from "../MovieCard/MovieCard";
-import { useTrendingMoviesQuery } from "../../hooks/useTrendingMovies";
 import "./MovieCarousel.style.css";
 
-const responsive = {
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 5,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 3,
-    // slidesToSlide: 2, // optional, default to 1.
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-    // slidesToSlide: 1, // optional, default to 1.
-  },
-};
+// const responsive = {
+//   desktop: {
+//     breakpoint: { max: 3000, min: 1024 },
+//     items: 5,
+//     slidesToSlide: 0.5,
+//   },
+//   tablet: {
+//     breakpoint: { max: 1024, min: 464 },
+//     items: 3,
+//     // slidesToSlide: 2, // optional, default to 1.
+//   },
+//   mobile: {
+//     breakpoint: { max: 464, min: 0 },
+//     items: 1,
+//     slidesToSlide: 0.1,
+//   },
+// };
 
 const MovieCarousel = ({ listTitle, useQuery, autoPlay }) => {
   const { data, isLoading, error, isError } = useQuery();
+
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 5,
+      slidesToSlide: autoPlay ? 0.5 : 4,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 3,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+      slidesToSlide: autoPlay ? 0.1 : 0.5,
+    },
+  };
 
   if (isLoading) {
     return <h1>Loading...</h1>;
@@ -36,7 +53,7 @@ const MovieCarousel = ({ listTitle, useQuery, autoPlay }) => {
         swipeable={true}
         draggable={true}
         responsive={responsive}
-        infinite={false}
+        infinite={autoPlay}
         customTransition="transform 300ms ease-in-out"
         transitionDuration={500}
         containerClass="carousel-container"
