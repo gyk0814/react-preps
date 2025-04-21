@@ -8,3 +8,17 @@ body {
   background-color: black !important;
   color: white !important;
 }
+
+@font-face {
+  font-family: "DeadSold";
+  src: url("./src/assets/fonts/DeadSold-RpKVo.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Dokdo";
+  src: url("./src/assets/fonts/Dokdo-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}

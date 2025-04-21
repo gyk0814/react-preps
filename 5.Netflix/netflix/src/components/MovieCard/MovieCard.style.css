@@ -1,0 +1,50 @@
+.title {
+  color: white;
+  font-size: 40px;
+  text-shadow: -1px -1px 2px rgba(0, 0, 0, 0.4), 1px -1px 2px rgba(0, 0, 0, 0.4),
+    -1px 1px 2px rgba(0, 0, 0, 0.4), 1px 1px 2px rgba(0, 0, 0, 0.4);
+  font-family: "DeadSold", "Dokdo", sans-serif;
+}
+
+.title-small {
+  font-size: 40px;
+}
+
+.movie-card {
+  width: 18vw;
+  margin-right: 10px;
+  height: 21vh;
+  box-sizing: border-box;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.movie-card:hover {
+  transform: scale(1.3) translateZ(20px) translateY(-60px);
+  height: 35dvh;
+  width: 17dvw;
+  border-radius: 5px;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.overlay:hover {
+  transition: 0.3s;
+  .info {
+    opacity: 1;
+  }
+}
+
+.info {
+  opacity: 0;
+  background-color: rgba(76, 76, 76, 0.9);
+  height: 50%;
+  border-radius: 0 0 5px 5px;
+}

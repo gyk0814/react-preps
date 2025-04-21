@@ -1,13 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router";
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
+import { Container, Form, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { useNavigate } from "react-router";
-import { useTrendingMoviesQuery } from "../hooks/useTrendingMovies";
 
 const AppLayout = () => {
   const navList = [

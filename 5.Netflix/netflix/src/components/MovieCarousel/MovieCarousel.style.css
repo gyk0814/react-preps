@@ -1,0 +1,37 @@
+.carousel-container {
+  padding: 0 50px;
+  height: 30dvh;
+  overflow: visible;
+  width: 100%;
+}
+
+.carousel-container:hover {
+  .react-multiple-carousel__arrow {
+    opacity: 1;
+  }
+}
+.carousel-item {
+  height: 21dvh;
+  display: block;
+  margin: 0 5px;
+}
+
+.react-multiple-carousel__arrow {
+  opacity: 0;
+  height: 70%;
+  border-radius: 0;
+  width: 80px;
+}
+
+.react-multiple-carousel__arrow--left {
+  left: 0px;
+}
+.react-multiple-carousel__arrow--right {
+  right: 0px;
+  z-index: 0;
+}
+.slider {
+  height: 70%;
+  width: 100%;
+  overflow: hidden;
+}

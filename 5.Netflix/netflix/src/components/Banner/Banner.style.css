@@ -37,15 +37,19 @@
   padding: 5rem;
   animation: growAndReturn 3s ease-in-out;
   transform-origin: bottom left; /* 애니메이션 기준점을 오른쪽 위로 설정 */
+  font-family: "Dokdo", sans-serif;
 }
 
 .banner-text > * {
   z-index: 1;
 }
 .banner-text h1 {
-  font-size: 4rem;
+  font-size: 7rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+}
+.banner-text p {
+  font-size: 1.5rem;
 }
 
 @keyframes growAndReturnMobile {
