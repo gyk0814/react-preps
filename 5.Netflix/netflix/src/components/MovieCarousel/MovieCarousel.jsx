@@ -30,7 +30,7 @@ const MovieCarousel = ({ listTitle, useQuery, autoPlay }) => {
   }
   console.log("data", data);
   return (
-    <div style={{ overflow: "hidden", paddingBottom: "4rem" }}>
+    <div className="outer-div" style={{ overflow: "hidden" }}>
       <h3 style={{ marginTop: "2rem", paddingLeft: "3rem" }}>{listTitle}</h3>
       <Carousel
         swipeable={true}

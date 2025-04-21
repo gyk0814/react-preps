@@ -35,3 +35,11 @@
   width: 100%;
   overflow: hidden;
 }
+.outer-div {
+  padding-bottom: 4rem;
+}
+@media (max-width: 430px) {
+  .outer-div {
+    padding-bottom: 3rem;
+  }
+}
