@@ -16,7 +16,7 @@ const MovieCard = ({ movie }) => {
     >
       <div className="overlay">
         <div className="trailer">
-          <div className="title">{movie.title}</div>
+          <div className="title">{movie.title || movie.name}</div>
         </div>
         <div className="p-3 info">
           <div className="d-flex flex-row gap-3 justify-content-between">

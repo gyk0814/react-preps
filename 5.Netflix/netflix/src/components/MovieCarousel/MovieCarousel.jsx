@@ -22,14 +22,16 @@ const responsive = {
   },
 };
 
-const MovieCarousel = ({ deviceType }) => {
-  const { data, isLoading, error, isError } = useTrendingMoviesQuery();
+const MovieCarousel = ({ listTitle, useQuery, autoPlay }) => {
+  const { data, isLoading, error, isError } = useQuery();
+
   if (isLoading) {
     return <h1>Loading...</h1>;
   }
+  console.log("data", data);
   return (
-    <div style={{ overflow: "hidden" }}>
-      <h3 style={{ marginTop: "3rem", paddingLeft: "3rem" }}>최신 인기 영화</h3>
+    <div style={{ overflow: "hidden", paddingBottom: "4rem" }}>
+      <h3 style={{ marginTop: "2rem", paddingLeft: "3rem" }}>{listTitle}</h3>
       <Carousel
         swipeable={true}
         draggable={true}
@@ -39,7 +41,7 @@ const MovieCarousel = ({ deviceType }) => {
         transitionDuration={500}
         containerClass="carousel-container"
         dotListClass="custom-dot-list-style"
-        autoPlay={false}
+        autoPlay={autoPlay}
         autoPlaySpeed={1000}
         rewind={true}
         rewindWithAnimation={true}
@@ -50,9 +52,6 @@ const MovieCarousel = ({ deviceType }) => {
           <MovieCard key={index} movie={movie} />
         ))}
       </Carousel>
-      <div className="py-5">
-        <h1>test</h1>
-      </div>
     </div>
   );
 };

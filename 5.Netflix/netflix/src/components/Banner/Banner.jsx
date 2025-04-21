@@ -11,7 +11,6 @@ const Banner = () => {
   if (isError) {
     return <Alert variant="danger">Error: {error.message}</Alert>;
   }
-  if (data) console.log("data", data);
   return (
     <div
       style={{
