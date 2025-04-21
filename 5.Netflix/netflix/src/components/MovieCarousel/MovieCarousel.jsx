@@ -38,7 +38,7 @@ const MovieCarousel = ({ listTitle, useQuery, autoPlay }) => {
     mobile: {
       breakpoint: { max: 464, min: 0 },
       items: 1,
-      slidesToSlide: autoPlay ? 0.1 : 0.5,
+      slidesToSlide: autoPlay ? 0.241 : 0.725,
     },
   };
 

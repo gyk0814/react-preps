@@ -13,7 +13,6 @@ const MovieCard = ({ movie }) => {
     } else {
       return <div className="title">{title}</div>;
     }
-    return title;
   };
   return (
     <div
@@ -37,7 +36,7 @@ const MovieCard = ({ movie }) => {
               />
             </div>
           </div>
-          <div className="my-4 d-flex gap-1 flex-wrap">
+          <div className="my-4 d-flex gap-1 flex-wrap badges-div">
             {movie.genre_ids.map((genre, index) => (
               <Badge key={index} bg="danger" style={{ margin: "1px" }}>
                 {genre}
