@@ -11,9 +11,9 @@
 }
 
 .movie-card {
-  width: 18vw;
+  width: 18dvw;
   margin-right: 10px;
-  height: 21vh;
+  height: 21dvh;
   box-sizing: border-box;
   background-size: cover;
   background-position: center;
