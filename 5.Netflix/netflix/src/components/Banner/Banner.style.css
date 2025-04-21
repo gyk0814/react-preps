@@ -1,5 +1,5 @@
 .banner {
-  height: 80dvh;
+  height: 675.2px;
   background-position: center;
   background-size: cover;
   position: relative;
@@ -69,7 +69,7 @@
 
 @media (max-width: 430px) {
   .banner {
-    height: 50dvh;
+    height: 422px;
   }
   .banner-text {
     width: 65%;

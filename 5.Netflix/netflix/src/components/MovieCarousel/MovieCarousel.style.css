@@ -1,6 +1,6 @@
 .carousel-container {
   padding: 0 50px;
-  height: 30dvh;
+  height: 253.2px;
   overflow: visible;
   width: 100%;
 }
@@ -11,7 +11,7 @@
   }
 }
 .carousel-item {
-  height: 21dvh;
+  height: 177.2px;
   display: block;
   margin: 0 5px;
 }
