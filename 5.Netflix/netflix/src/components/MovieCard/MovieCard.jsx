@@ -54,7 +54,15 @@ const MovieCard = ({ movie }) => {
           </div>
           <div className="my-4 d-flex gap-1 flex-wrap badges-div">
             {showGenres(movie.genre_ids, movie?.title).map((genre, index) => (
-              <Badge key={index} bg="danger" style={{ margin: "1px" }}>
+              <Badge
+                key={index}
+                bg="danger"
+                className="py-0"
+                style={{
+                  margin: "1px",
+                  borderRadius: "0px",
+                }}
+              >
                 {genre}
               </Badge>
             ))}

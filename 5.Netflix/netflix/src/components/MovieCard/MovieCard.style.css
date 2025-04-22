@@ -73,27 +73,19 @@
   .movie-card {
     width: 70dvw;
   }
-  /* .movie-card-focus {
-    transform: scale(1.1) translateZ(20px) translateY(-30px);
-    height: 295.4px;
-    width: 70dvw;
-    border-radius: 5px;
-    .title {
-      font-size: 30px;
-    }
-  } */
 
   .title {
     font-size: 25px;
   }
   .badges-div {
-    margin: 8px 0 !important;
+    margin: 1rem 0 !important;
   }
   .movie-card:hover {
     .info {
       opacity: 1;
       height: 120px;
       z-index: 3;
+      border-radius: 0;
     }
   }
 }
