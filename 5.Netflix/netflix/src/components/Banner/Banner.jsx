@@ -5,6 +5,7 @@ import "./Banner.style.css";
 
 const Banner = () => {
   const { data, isLoading, error, isError } = useTrendingMoviesQuery();
+
   if (isLoading) {
     return <h1>Loading...</h1>;
   }
