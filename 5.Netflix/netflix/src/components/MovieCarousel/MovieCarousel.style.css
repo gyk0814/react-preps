@@ -41,9 +41,16 @@
 }
 @media (max-width: 430px) {
   .outer-div {
-    padding-bottom: 3rem;
+    padding-bottom: 1rem; /* 변화 */
   }
   .react-multiple-carousel__arrow {
     width: 40px;
   }
+  /* .carousel-container {   변화
+    padding: 0px;
+    height: 220px;
+  }
+  .slider {
+    align-self: start;
+  } */
 }

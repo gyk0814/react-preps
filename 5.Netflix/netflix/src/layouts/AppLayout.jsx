@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router";
 import { Container, Form, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { useNavigate } from "react-router";
@@ -53,6 +53,11 @@ const AppLayout = () => {
         break;
     }
   };
+  const [keyword, setKeyword] = useState("");
+  const search = (e) => {
+    e.preventDefault();
+    navigate(`/movies?q=${keyword}`);
+  };
 
   return (
     <div>
@@ -88,12 +93,15 @@ const AppLayout = () => {
             </Nav>
           </Navbar.Collapse>
           <Nav className="d-flex my-2 flex-row gap-5">
-            <Form className="d-flex" onSubmit={(e) => e.preventDefault()}>
+            <Form className="d-flex" onSubmit={search}>
               <Form.Control
                 type="search"
                 placeholder="Search"
                 className="me-2 border-white"
                 aria-label="Search"
+                onChange={(e) => {
+                  setKeyword(e.target.value);
+                }}
               />
               <button
                 type="submit"

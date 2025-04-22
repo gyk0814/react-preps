@@ -1,0 +1,11 @@
+.card-container {
+  margin: 2rem 0;
+}
+
+@media (max-width: 430px) {
+  .card-container {
+    height: 280px;
+    margin: 0;
+    padding: 10px;
+  }
+}

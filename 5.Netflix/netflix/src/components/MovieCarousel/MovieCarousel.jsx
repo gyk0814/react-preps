@@ -29,7 +29,7 @@ const MovieCarousel = ({ listTitle, useQuery, autoPlay }) => {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 5,
-      slidesToSlide: autoPlay ? 0.5 : 4,
+      slidesToSlide: autoPlay ? 1 : 4,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -55,12 +55,11 @@ const MovieCarousel = ({ listTitle, useQuery, autoPlay }) => {
         draggable={true}
         responsive={responsive}
         infinite={autoPlay}
-        customTransition="transform 300ms ease-in-out"
-        transitionDuration={500}
+        customTransition="transform 6000ms ease-in-out"
         containerClass="carousel-container"
         dotListClass="custom-dot-list-style"
         autoPlay={autoPlay}
-        autoPlaySpeed={1500}
+        autoPlaySpeed={3000}
         {...(!autoPlay && {
           rewind: true,
           rewindWithAnimation: false,

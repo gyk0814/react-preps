@@ -33,9 +33,16 @@ const MovieCard = ({ movie }) => {
   return (
     <div
       className="movie-card"
-      style={{
-        backgroundImage: `url(https://www.themoviedb.org/t/p/w1066_and_h600_bestv2${movie.backdrop_path})`,
-      }}
+      style={
+        movie.backdrop_path
+          ? {
+              backgroundImage: `url(https://www.themoviedb.org/t/p/w1066_and_h600_bestv2${movie.backdrop_path})`,
+            }
+          : {
+              backgroundImage:
+                "url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1200px-No-Image-Placeholder.svg.png",
+            }
+      }
     >
       <div className="overlay">
         <div className="trailer">{handleTitle(movie.title || movie.name)}</div>

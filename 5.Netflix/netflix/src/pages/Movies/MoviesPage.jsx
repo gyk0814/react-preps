@@ -1,7 +1,59 @@
-import React from "react";
-
+import React, { useState } from "react";
+import { useSearchMovieQuery } from "../../hooks/useSearchMovie";
+import { useSearchParams } from "react-router";
+import { Container, Row, Col } from "react-bootstrap";
+import MoviePosterCard from "../../components/MoviePosterCard/MoviePosterCard";
+import "./MoviesPage.style.css";
 const MoviesPage = () => {
-  return <div>MoviesPage</div>;
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [page, setPage] = useState(1);
+
+  const query = searchParams.get("q");
+  const { data, isLoading, error, iserror } = useSearchMovieQuery(query, page);
+
+  if (isLoading) {
+    console.log(query, page);
+    return <h1>Loading...!</h1>;
+  }
+  if (iserror) {
+    return <Alert variant="danger">Error: {error.message}</Alert>;
+  }
+
+  console.log(data);
+  return (
+    <div>
+      <Container>
+        <Row className="gap-3">
+          <Col xs={12}>
+            <Row style={{ justifyContent: "flex-end", marginTop: "2rem" }}>
+              <Col xs={6} lg={1}>
+                filter
+              </Col>
+              <Col xs={6} lg={1}>
+                sorting
+              </Col>
+            </Row>
+          </Col>
+          <Col xs={12}>
+            <Row className="px-2">
+              {data?.results.map((movie, index) => (
+                <Col
+                  xs={6}
+                  md={4}
+                  lg={3}
+                  xxl={2}
+                  key={index}
+                  className="card-container"
+                >
+                  <MoviePosterCard movie={movie} />
+                </Col>
+              ))}
+            </Row>
+          </Col>
+        </Row>
+      </Container>
+    </div>
+  );
 };
 
 export default MoviesPage;
