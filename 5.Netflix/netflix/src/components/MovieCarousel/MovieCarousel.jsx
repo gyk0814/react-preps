@@ -43,8 +43,9 @@ const MovieCarousel = ({ listTitle, useQuery, autoPlay }) => {
   };
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <></>;
   }
+
   console.log("data", data);
   return (
     <div className="outer-div" style={{ overflow: "hidden" }}>
