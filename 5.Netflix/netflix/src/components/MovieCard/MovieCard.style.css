@@ -13,7 +13,7 @@
 .movie-card {
   width: 18dvw;
   margin-right: 10px;
-  height: 21dvh;
+  height: 177.2px;
   box-sizing: border-box;
   background-size: cover;
   background-position: center;
@@ -51,7 +51,7 @@
   .movie-card {
     width: 70dvw;
   }
-  .movie-card-focus {
+  /* .movie-card-focus {
     transform: scale(1.1) translateZ(20px) translateY(-30px);
     height: 295.4px;
     width: 70dvw;
@@ -59,7 +59,7 @@
     .title {
       font-size: 30px;
     }
-  }
+  } */
 
   .title {
     font-size: 25px;
@@ -89,4 +89,11 @@
   background-color: #181818;
   height: 0px;
   border-radius: 0 0 5px 5px;
+}
+.movie-card:hover {
+  .info {
+    opacity: 1;
+    height: 120px;
+    z-index: 3;
+  }
 }

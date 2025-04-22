@@ -3,28 +3,11 @@ import "./MovieCard.style.css";
 import Button from "react-bootstrap/Button";
 import { useState, useEffect, useRef } from "react";
 import Badge from "react-bootstrap/Badge";
+import { useMovieGenreQuery } from "../../hooks/useMovieGenreQuery";
+import { useTVGenreQuery } from "../../hooks/useTVGenreQuery";
 
 const MovieCard = ({ movie }) => {
   const [like, setLike] = useState(false);
-  const [mobileOpenCard, setMobileOpenCard] = useState(false);
-  const [startTouch, setStartTouch] = useState(null);
-  const [isSwiping, setIsSwiping] = useState(false);
-  const cardRef = useRef(null);
-
-  const handleTouchStart = (e) => {
-    const touch = e.touches[0];
-    setStartTouch({ x: touch.clientX, y: touch.clientY });
-  };
-
-  const handleTouchMove = (e) => {
-    const touch = e.touches[0];
-    const dx = Math.abs(touch.clientX - startTouch?.x);
-    const dy = Math.abs(touch.clientY - startTouch?.y);
-
-    if (dx > 10 || dy > 10) {
-      setIsSwiping(true);
-    }
-  };
 
   const handleTitle = (title) => {
     if (title.length > 10) {
@@ -33,32 +16,23 @@ const MovieCard = ({ movie }) => {
       return <div className="title">{title}</div>;
     }
   };
-  const handleTouchEnd = () => {
-    if (!isSwiping) {
-      setMobileOpenCard(true); // 탭일 때만 활성화
-    }
-    setIsSwiping(false);
+  const { data: movieGenres } = useMovieGenreQuery();
+  const { data: TVGenres } = useTVGenreQuery();
+
+  const showGenres = (genreIdList, isMovieData) => {
+    if (!genreIdList || !movieGenres || !TVGenres) return [];
+    return genreIdList.map((genreId) => {
+      const genre =
+        isMovieData === undefined
+          ? TVGenres.find((genre) => genre.id === genreId)
+          : movieGenres.find((genre) => genre.id === genreId);
+      return genre ? genre.name : null;
+    });
   };
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (cardRef.current && !cardRef.current.contains(event.target)) {
-        setMobileOpenCard(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("touchstart", handleClickOutside); // 모바일 대응
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("touchstart", handleClickOutside);
-    };
-  }, []);
+
   return (
     <div
-      ref={cardRef}
-      className={`movie-card ${mobileOpenCard ? "movie-card-focus" : ""}`}
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleTouchEnd}
+      className="movie-card"
       style={{
         backgroundImage: `url(https://www.themoviedb.org/t/p/w1066_and_h600_bestv2${movie.backdrop_path})`,
       }}
@@ -79,7 +53,7 @@ const MovieCard = ({ movie }) => {
             </div>
           </div>
           <div className="my-4 d-flex gap-1 flex-wrap badges-div">
-            {movie.genre_ids.map((genre, index) => (
+            {showGenres(movie.genre_ids, movie?.title).map((genre, index) => (
               <Badge key={index} bg="danger" style={{ margin: "1px" }}>
                 {genre}
               </Badge>
