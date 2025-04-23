@@ -1,11 +1,38 @@
 .card-container {
   margin: 2rem 0;
 }
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.page-item.active > .page-link {
+  box-shadow: none;
+  text-decoration: underline !important;
+}
+.page-item > .page-link,
+.page-item.disabled > .page-link {
+  background-color: #141414 !important;
+  color: red !important;
+  border: 0px;
+  font-family: "DeadSold", sans-serif;
+}
+
+.page-link:focus-within {
+  box-shadow: none !important;
+}
 
 @media (max-width: 430px) {
   .card-container {
     height: 280px;
     margin: 0;
     padding: 10px;
+  }
+  .pagination {
+    font-size: small;
+  }
+  .movie-col {
+    padding: 0;
   }
 }
