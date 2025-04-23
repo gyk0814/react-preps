@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSearchMovieQuery } from "../../hooks/useSearchMovie";
 import { useSearchParams } from "react-router";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Alert } from "react-bootstrap";
 import MoviePosterCard from "../../components/MoviePosterCard/MoviePosterCard";
 import ReactPaginate from "react-paginate";
 import "./MoviesPage.style.css";
@@ -38,7 +38,7 @@ const MoviesPage = () => {
           marginTop: "5rem",
         }}
       >
-        <h1>Movie Not Found</h1>
+        <Alert variant="danger">Movie Not Found</Alert>
       </div>
     );
   }
@@ -82,7 +82,7 @@ const MoviesPage = () => {
               onPageChange={handlePageClick}
               pageRangeDisplayed={3}
               marginPagesDisplayed={1}
-              pageCount={data?.total_pages}
+              pageCount={500}
               previousLabel="<"
               pageClassName="page-item"
               pageLinkClassName="page-link"
