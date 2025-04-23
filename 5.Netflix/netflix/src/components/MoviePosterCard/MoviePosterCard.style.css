@@ -12,8 +12,10 @@
 .info-title-small {
   font-size: 20px;
 }
-.info {
+.info-movies {
   background-color: #181818a9 !important;
+  position: relative !important;
+  justify-content: space-between !important;
 }
 .poster-card:hover {
   .info {

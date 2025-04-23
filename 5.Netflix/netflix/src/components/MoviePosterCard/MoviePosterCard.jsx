@@ -44,7 +44,7 @@ const MoviePosterCard = ({ movie }) => {
             }
       }
     >
-      <div className="p-3 overlay info position-relative justify-content-between">
+      <div className="p-3 overlay info info-movies ">
         <div style={{ height: "40%" }}>
           {handleTitle(movie.title || movie.name)}
         </div>
