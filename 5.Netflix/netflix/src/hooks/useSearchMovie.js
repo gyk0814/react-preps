@@ -12,5 +12,6 @@ export const useSearchMovieQuery = (query, page) => {
     queryKey: ["search-movie", query, page],
     queryFn: () => fetchSearchMovie(query, page),
     select: (data) => data.data,
+    retry: 1,
   });
 };

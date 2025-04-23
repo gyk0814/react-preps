@@ -22,6 +22,9 @@
 .page-link:focus-within {
   box-shadow: none !important;
 }
+.movie-col {
+  padding-left: 4.5rem;
+}
 
 @media (max-width: 430px) {
   .card-container {
@@ -33,6 +36,6 @@
     font-size: small;
   }
   .movie-col {
-    padding: 0;
+    padding-left: 0.5rem;
   }
 }

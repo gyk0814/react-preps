@@ -24,6 +24,24 @@ const MoviesPage = () => {
   if (iserror) {
     return <Alert variant="danger">Error: {error.message}</Alert>;
   }
+  if (data == undefined || data?.results.length === 0 || data == null) {
+    return (
+      <div
+        style={{
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "flex-start",
+          fontSize: "1rem",
+          fontWeight: "bold",
+          color: "white",
+          marginTop: "5rem",
+        }}
+      >
+        <h1>Movie Not Found</h1>
+      </div>
+    );
+  }
   const handlePageClick = (page) => {
     console.log(page);
     setPage(page.selected + 1);
@@ -44,7 +62,7 @@ const MoviesPage = () => {
               </Col>
             </Row>
           </Col>
-          <Col xs={12} className="movie-col" style={{ paddingLeft: "4.5rem" }}>
+          <Col xs={12} className="movie-col">
             <Row className="px-2 ">
               {data?.results.map((movie, index) => (
                 <Col
