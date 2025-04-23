@@ -75,14 +75,14 @@ a.nav-link:focus {
     right: 5px;
   }
   .form-control {
-    width: 100px;
-    display: none;
+    width: 80px;
+    padding: 0 0 0 10px;
   }
-  .bi-search:focus {
-    .form-control {
-      display: block;
-    }
+
+  .form-control:focus {
+    width: 140px;
   }
+
   .navbar-toggler {
     top: 13px;
     left: 130px;
