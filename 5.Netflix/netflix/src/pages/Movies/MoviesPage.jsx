@@ -49,60 +49,58 @@ const MoviesPage = () => {
 
   console.log(data);
   return (
-    <div>
-      <Container>
-        <Row className="gap-3">
-          <Col xs={12}>
-            <Row style={{ justifyContent: "flex-end", marginTop: "2rem" }}>
-              <Col xs={6} lg={1}>
-                filter
+    <Container>
+      <Row className="gap-3">
+        <Col xs={12}>
+          <Row style={{ justifyContent: "flex-end", marginTop: "2rem" }}>
+            <Col xs={6} lg={1}>
+              filter
+            </Col>
+            <Col xs={6} lg={1}>
+              sorting
+            </Col>
+          </Row>
+        </Col>
+        <Col xs={12} className="movie-col">
+          <Row className="px-2 ">
+            {data?.results.map((movie, index) => (
+              <Col
+                xs={6}
+                md={4}
+                lg={3}
+                xxl="auto"
+                key={index}
+                className="card-container"
+              >
+                <MoviePosterCard movie={movie} />
               </Col>
-              <Col xs={6} lg={1}>
-                sorting
-              </Col>
-            </Row>
-          </Col>
-          <Col xs={12} className="movie-col">
-            <Row className="px-2 ">
-              {data?.results.map((movie, index) => (
-                <Col
-                  xs={6}
-                  md={4}
-                  lg={3}
-                  xxl="auto"
-                  key={index}
-                  className="card-container"
-                >
-                  <MoviePosterCard movie={movie} />
-                </Col>
-              ))}
-            </Row>
-            <ReactPaginate
-              nextLabel=">"
-              onPageChange={handlePageClick}
-              pageRangeDisplayed={3}
-              marginPagesDisplayed={1}
-              pageCount={Math.min(data?.total_pages, 500)}
-              previousLabel="<"
-              pageClassName="page-item"
-              pageLinkClassName="page-link"
-              previousClassName="page-item"
-              previousLinkClassName="page-link"
-              nextClassName="page-item"
-              nextLinkClassName="page-link"
-              breakLabel="..."
-              breakClassName="page-item"
-              onPageActive="active"
-              breakLinkClassName="page-link"
-              containerClassName="pagination"
-              activeClassName="active"
-              renderOnZeroPageCount={null}
-              initialPage={page - 1}
-            />
-          </Col>
-        </Row>
-      </Container>
-    </div>
+            ))}
+          </Row>
+          <ReactPaginate
+            nextLabel=">"
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={3}
+            marginPagesDisplayed={1}
+            pageCount={Math.min(data?.total_pages, 500)}
+            previousLabel="<"
+            pageClassName="page-item"
+            pageLinkClassName="page-link"
+            previousClassName="page-item"
+            previousLinkClassName="page-link"
+            nextClassName="page-item"
+            nextLinkClassName="page-link"
+            breakLabel="..."
+            breakClassName="page-item"
+            onPageActive="active"
+            breakLinkClassName="page-link"
+            containerClassName="pagination"
+            activeClassName="active"
+            renderOnZeroPageCount={null}
+            initialPage={page - 1}
+          />
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

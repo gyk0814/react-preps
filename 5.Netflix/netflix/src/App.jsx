@@ -1,5 +1,3 @@
-import { useState } from "react";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import { Routes, Route } from "react-router";
 import AppLayout from "./layouts/AppLayout";

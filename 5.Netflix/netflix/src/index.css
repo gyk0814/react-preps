@@ -4,11 +4,16 @@ body {
   padding: 0;
   box-sizing: border-box;
   height: 100%;
+  min-height: 100vh;
   width: 100%;
   background-color: #141414 !important;
   color: white !important;
+  overflow-x: hidden;
 }
-
+#root {
+  min-height: 100vh;
+  position: relative;
+}
 @font-face {
   font-family: "DeadSold";
   src: url("/fonts/DeadSold-RpKVo.ttf") format("truetype");
@@ -21,4 +26,13 @@ body {
   src: url("/fonts/Dokdo-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+}
+
+.tsqd-main-panel {
+  top: 50%;
+  position: fixed;
+  z-index: 9999;
+  left: 0%;
+  right: 0%;
+  max-height: 50vh !important;
 }
