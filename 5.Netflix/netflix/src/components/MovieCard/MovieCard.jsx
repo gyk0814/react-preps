@@ -6,6 +6,7 @@ import Badge from "react-bootstrap/Badge";
 import { useMovieGenreQuery } from "../../hooks/useMovieGenreQuery";
 import { useTVGenreQuery } from "../../hooks/useTVGenreQuery";
 import { useMovieTrailerQuery } from "../../hooks/useMovieTrailerQuery";
+import YouTube from "react-youtube";
 
 const MovieCard = ({ movie }) => {
   const [like, setLike] = useState(false);
@@ -35,26 +36,34 @@ const MovieCard = ({ movie }) => {
     movie.id,
     movie.title ? "movie" : "tv"
   );
-  const videoRef = useRef(null);
   const timeoutRef = useRef(null);
   const movieImg = movie.backdrop_path
     ? `url(https://www.themoviedb.org/t/p/w1066_and_h600_bestv2${movie.backdrop_path})`
     : "url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1200px-No-Image-Placeholder.svg.png";
 
   const mouseOverAction = () => {
-    setPlayVideo(true);
     timeoutRef.current = setTimeout(() => {
-      videoRef.current?.play();
+      console.log("mouse over");
+      setPlayVideo(true);
+      console.log(playVideo);
     }, 1000);
   };
   const mouseLeaveAction = () => {
-    // clearTimeout(timeoutRef.current);
+    clearTimeout(timeoutRef.current);
     setPlayVideo(false);
-    if (videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0;
-    }
   };
+
+  const opts = {
+    height: "100%",
+    width: "100%",
+    playerVars: {
+      autoplay: 1,
+      controls: 0,
+      modestbranding: 0,
+      muted: 1,
+    },
+  };
+
   if (isLoading) {
     return <></>;
   }
@@ -62,22 +71,20 @@ const MovieCard = ({ movie }) => {
   return (
     <div
       className="movie-card"
-      onMouseOver={mouseOverAction}
+      onMouseEnter={mouseOverAction}
       onMouseLeave={mouseLeaveAction}
     >
-      <div
-        className="movie-player-div"
-        style={!playVideo ? { backgroundImage: movieImg } : {}}
-      >
+      <div className="movie-player-div" style={{ backgroundImage: movieImg }}>
         {playVideo && (
-          <iframe
-            className="trailer"
-            src={`https://www.youtube.com/embed/${movieTrailerKey}?autoplay=1&controls=0&loop=1&modestbranding=1&playlist=${movieTrailerKey}`}
-            title="YouTube trailer"
-            allow=" autoplay; encrypted-media;"
-          >
-            브라우저가 영상을 지원하지 않습니다.
-          </iframe>
+          //   <iframe
+          //     className="trailer"
+          //     src={`https://www.youtube.com/embed/${movieTrailerKey}?autoplay=1&mute=0&controls=0&loop=1&modestbranding=1&playlist=${movieTrailerKey}`}
+          //     title="YouTube trailer"
+          //     allow="autoplay; encrypted-media;"
+          //   >
+          //     브라우저가 영상을 지원하지 않습니다.
+          //   </iframe>
+          <YouTube className="trailer" videoId={movieTrailerKey} opts={opts} />
         )}
         {handleTitle(movie.title || movie.name)}
       </div>
