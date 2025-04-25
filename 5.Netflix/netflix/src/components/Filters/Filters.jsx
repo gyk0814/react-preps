@@ -10,7 +10,7 @@ import {
 } from "react-bootstrap";
 import { useMovieGenreQuery } from "../../hooks/useMovieGenreQuery";
 
-const Filters = ({ setSort, setGenre }) => {
+const Filters = ({ setSort, setGenre, sort, genre }) => {
   const { data: movieGenres } = useMovieGenreQuery();
   const sortList = [
     { name: "인기 많은 순", value: "popularity.desc" },
@@ -18,8 +18,14 @@ const Filters = ({ setSort, setGenre }) => {
     { name: "최신순", value: "release_date.desc" },
     { name: "오래된순", value: "release_date.asc" },
   ];
-  const [sortTitle, setSortTitle] = useState("Order By");
-  const [genreTitle, setGenreTitle] = useState("Genres");
+  const getSortTitle = () => {
+    const sortItem = sortList.find((item) => item.value === sort);
+    return sortItem ? sortItem.name : "Order By";
+  };
+  const getGenreTitle = () => {
+    const genreItem = movieGenres?.find((item) => item.id === genre);
+    return genreItem ? genreItem.name : "Genres";
+  };
 
   return (
     <Col xs={12}>
@@ -40,15 +46,9 @@ const Filters = ({ setSort, setGenre }) => {
             id="dropdown-sort"
             size="sm"
             variant="secondary"
-            title={sortTitle}
+            title={getSortTitle()}
             onSelect={(idx) => {
-              if (idx === "-1") {
-                setSort("");
-                setSortTitle("Order By");
-                return;
-              }
               setSort(sortList[idx].value);
-              setSortTitle(sortList[idx].name);
             }}
           >
             {sortList.map((item, idx) => (
@@ -56,10 +56,6 @@ const Filters = ({ setSort, setGenre }) => {
                 {item.name}
               </Dropdown.Item>
             ))}
-            {/* <DropdownDivider />
-            <Dropdown.Item key={"-1"} eventKey={"-1"}>
-              선택 해제
-            </Dropdown.Item> */}
           </DropdownButton>
         </Col>
         <Col xs={6} lg={1}>
@@ -68,29 +64,27 @@ const Filters = ({ setSort, setGenre }) => {
             id="dropdown-genre"
             size="sm"
             variant="secondary"
-            title={genreTitle}
+            title={getGenreTitle()}
           >
+            <Dropdown.Item
+              key={"-1"}
+              onClick={() => {
+                setGenre("");
+              }}
+            >
+              선택 해제
+            </Dropdown.Item>
+            <DropdownDivider className="p-0 m-0" />
             {movieGenres?.map((genre, idx) => (
               <Dropdown.Item
                 key={idx}
                 onClick={() => {
                   setGenre(genre.id);
-                  setGenreTitle(genre.name);
                 }}
               >
                 {genre.name}
               </Dropdown.Item>
             ))}
-            {/* <DropdownDivider />
-            <Dropdown.Item
-              key={"-1"}
-              onClick={() => {
-                setGenre("");
-                setGenreTitle("Genres");
-              }}
-            >
-              선택 해제
-            </Dropdown.Item> */}
           </DropdownButton>
         </Col>
       </Row>

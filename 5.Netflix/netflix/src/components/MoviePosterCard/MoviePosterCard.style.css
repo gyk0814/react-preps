@@ -1,10 +1,11 @@
 .poster-card {
-  width: 200px;
+  width: 205px;
   margin-right: 10px;
-  height: 300px;
-  object-fit: contain;
+  height: 307px;
+  object-fit: cover;
   box-sizing: border-box;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
   border-radius: 5px;
