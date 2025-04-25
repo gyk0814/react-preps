@@ -30,17 +30,21 @@ const Filters = ({ setSort, setGenre, sort, genre }) => {
   return (
     <Col xs={12}>
       <Row
+        className="filter-row"
         style={{
           justifyContent: "space-between",
           marginTop: "2rem",
           width: "20%",
           paddingRight: "2rem",
-          //   overflow: "visible",
-          gap: "1rem",
           justifySelf: "flex-end",
         }}
       >
-        <Col xs={6} lg={1}>
+        <Col
+          className="d-flex flex-row justify-content-center align-items-center"
+          xs={6}
+          lg={1}
+          style={{ alignItems: "center" }}
+        >
           <DropdownButton
             as={ButtonGroup}
             id="dropdown-sort"
@@ -58,7 +62,11 @@ const Filters = ({ setSort, setGenre, sort, genre }) => {
             ))}
           </DropdownButton>
         </Col>
-        <Col xs={6} lg={1}>
+        <Col
+          xs={6}
+          lg={1}
+          className="d-flex flex-row justify-content-center align-items-center"
+        >
           <DropdownButton
             as={ButtonGroup}
             id="dropdown-genre"

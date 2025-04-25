@@ -5,9 +5,11 @@ import { useState } from "react";
 import Badge from "react-bootstrap/Badge";
 import { useMovieGenreQuery } from "../../hooks/useMovieGenreQuery";
 import { useTVGenreQuery } from "../../hooks/useTVGenreQuery";
+import { useNavigate } from "react-router";
 
 const MoviePosterCard = ({ movie }) => {
   const [like, setLike] = useState(false);
+  const navigate = useNavigate();
 
   const handleTitle = (title) => {
     if (title.length > 7) {
@@ -43,6 +45,9 @@ const MoviePosterCard = ({ movie }) => {
                 "url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1200px-No-Image-Placeholder.svg.png",
             }
       }
+      onClick={() => {
+        navigate(`/movies/${movie.id}`);
+      }}
     >
       <div className="p-3 overlay info info-movies ">
         <div style={{ height: "40%" }}>

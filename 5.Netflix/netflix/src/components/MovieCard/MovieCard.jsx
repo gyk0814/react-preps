@@ -7,9 +7,11 @@ import { useMovieGenreQuery } from "../../hooks/useMovieGenreQuery";
 import { useTVGenreQuery } from "../../hooks/useTVGenreQuery";
 import { useMovieTrailerQuery } from "../../hooks/useMovieTrailerQuery";
 import YouTube from "react-youtube";
+import { useNavigate } from "react-router";
 
 const MovieCard = ({ movie }) => {
   const [like, setLike] = useState(false);
+  const navigate = useNavigate();
 
   const handleTitle = (title) => {
     if (title.length > 10) {
@@ -73,22 +75,16 @@ const MovieCard = ({ movie }) => {
       className="movie-card"
       onMouseEnter={mouseOverAction}
       onMouseLeave={mouseLeaveAction}
+      onClick={() => {
+        navigate(`/movies/${movie.id}`);
+      }}
     >
       <div className="movie-player-div" style={{ backgroundImage: movieImg }}>
         {playVideo && (
-          //   <iframe
-          //     className="trailer"
-          //     src={`https://www.youtube.com/embed/${movieTrailerKey}?autoplay=1&mute=0&controls=0&loop=1&modestbranding=1&playlist=${movieTrailerKey}`}
-          //     title="YouTube trailer"
-          //     allow="autoplay; encrypted-media;"
-          //   >
-          //     브라우저가 영상을 지원하지 않습니다.
-          //   </iframe>
           <YouTube className="trailer" videoId={movieTrailerKey} opts={opts} />
         )}
         {handleTitle(movie.title || movie.name)}
       </div>
-      {/* <div className="overlay"> */}
       <div className="p-3 info">
         <div className="d-flex flex-row gap-3 justify-content-between">
           <Button variant="light" className="w-50">
@@ -118,7 +114,6 @@ const MovieCard = ({ movie }) => {
           ))}
         </div>
       </div>
-      {/* </div> */}
     </div>
   );
 };

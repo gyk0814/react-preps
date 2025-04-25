@@ -1,0 +1,5 @@
+@media (max-width: 430px) {
+  .filter-row {
+    width: 80% !important;
+  }
+}
