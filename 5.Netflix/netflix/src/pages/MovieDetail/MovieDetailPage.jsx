@@ -1,4 +1,4 @@
-import React, { use, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useMovieDetailQuery } from "../../hooks/useMovieDetail";
 import { useParams } from "react-router";
 import { useMovieReviewsQuery } from "../../hooks/useMovieReviews";
@@ -7,7 +7,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import "./MovieDetailPage.style.css";
 import { Button, Badge } from "react-bootstrap";
 import Reviews from "./components/Reviews";
-import Recommendations from "./components/recommendations";
+import Recommendations from "./components/Recommendations";
 
 const MovieDetailPage = () => {
   const { id } = useParams();
@@ -15,6 +15,7 @@ const MovieDetailPage = () => {
   console.log("id", id);
   const { data: detail, isLoading: detailLoading } = useMovieDetailQuery(id);
   const { data: reviews, isLoading: reviewsLoading } = useMovieReviewsQuery(id);
+  const [playVideo, setPlayVideo] = useState(false);
 
   const formatRuntime = (minutes) => {
     const hours = Math.floor(minutes / 60);
@@ -38,15 +39,7 @@ const MovieDetailPage = () => {
         <Button
           variant="light"
           className="play-button p-0 d-flex align-items-center justify-content-center gap-1"
-          style={{
-            width: "150px",
-            height: "55px",
-            fontSize: "25px",
-            fontWeight: "600",
-            position: "absolute",
-            bottom: "100px",
-            right: "100px",
-          }}
+          onClick={() => setPlayVideo(true)}
         >
           <i className="bi bi-play-fill" style={{ fontSize: "3rem" }} /> Play
         </Button>

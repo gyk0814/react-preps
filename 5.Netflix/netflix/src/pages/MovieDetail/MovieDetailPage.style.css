@@ -73,6 +73,15 @@
   align-items: center;
   justify-self: flex-end;
 }
+.play-button {
+  width: 150px;
+  height: 55px;
+  font-size: 25px;
+  font-weight: 600;
+  position: absolute;
+  bottom: 100px;
+  right: 100px;
+}
 
 .detail-reviews-div {
   display: flex;
