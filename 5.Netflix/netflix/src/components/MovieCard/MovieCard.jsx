@@ -8,6 +8,7 @@ import { useTVGenreQuery } from "../../hooks/useTVGenreQuery";
 import { useMovieTrailerQuery } from "../../hooks/useMovieTrailerQuery";
 import YouTube from "react-youtube";
 import { useNavigate } from "react-router";
+import { opts } from "../../constants/videoOpts";
 
 const MovieCard = ({ movie }) => {
   const [like, setLike] = useState(false);
@@ -53,17 +54,6 @@ const MovieCard = ({ movie }) => {
   const mouseLeaveAction = () => {
     clearTimeout(timeoutRef.current);
     setPlayVideo(false);
-  };
-
-  const opts = {
-    height: "100%",
-    width: "100%",
-    playerVars: {
-      autoplay: 1,
-      controls: 0,
-      modestbranding: 0,
-      muted: 1,
-    },
   };
 
   if (isLoading) {

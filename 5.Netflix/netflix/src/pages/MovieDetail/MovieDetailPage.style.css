@@ -7,12 +7,13 @@
   flex-direction: column;
   align-items: center; */
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 .detail-screen-img {
   width: 100%;
   border: 15px solid black;
+  height: 100%;
 }
 .detail-info-div {
   background-color: color-mix(in oklab, rgb(32, 32, 36) 100%, rgb(0, 0, 0));
@@ -53,6 +54,9 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(to top, black, transparent);
+}
+.detail-screen.no-gradient::before {
+  display: none;
 }
 .detail-info-collapse {
   width: 100% !important;

@@ -8,6 +8,8 @@ import "./MovieDetailPage.style.css";
 import { Button, Badge } from "react-bootstrap";
 import Reviews from "./components/Reviews";
 import Recommendations from "./components/Recommendations";
+import YouTube from "react-youtube";
+import { opts } from "../../constants/videoOpts";
 
 const MovieDetailPage = () => {
   const { id } = useParams();
@@ -22,27 +24,54 @@ const MovieDetailPage = () => {
     const mins = minutes % 60;
     return `${hours}h ${mins}m`;
   };
+  useEffect(() => {
+    setPlayVideo(false);
+  }, []);
 
   return (
-    <Container className="movie-detail d-flex justify-content-center flex-column">
-      <div className="detail-screen" style={{ position: "relative" }}>
-        <div style={{ backgroundColor: "black" }}>
+    <Container className="movie-detail d-flex justify-content-center flex-column mt-3">
+      <div
+        className={`detail-screen ${playVideo ? "no-gradient" : ""}`}
+        style={{ position: "relative" }}
+      >
+        <div
+          className="d-flex flex-row justify-content-between"
+          style={{ backgroundColor: "black" }}
+        >
           <h2 className="mb-0 ps-4" style={{ color: "white" }}>
             {detail?.original_title}
           </h2>
+          <i
+            className="bi bi-x-lg pe-3 pt-1"
+            style={{ fontSize: "25px" }}
+            onClick={() => setPlayVideo(false)}
+          />
         </div>
-        <img
-          className="detail-screen-img"
-          src={`${IMAGE_URL.BACKDROP}${detail?.backdrop_path}`}
-          alt={detail?.original_title}
-        />
-        <Button
-          variant="light"
-          className="play-button p-0 d-flex align-items-center justify-content-center gap-1"
-          onClick={() => setPlayVideo(true)}
-        >
-          <i className="bi bi-play-fill" style={{ fontSize: "3rem" }} /> Play
-        </Button>
+        <hr className="p-0 m-0" />
+        {playVideo ? (
+          <YouTube
+            className="w-100"
+            videoId={detail?.videos.results[0]?.key}
+            opts={opts}
+            style={{ height: "687px" }}
+          />
+        ) : (
+          <>
+            <img
+              className="detail-screen-img"
+              src={`${IMAGE_URL.BACKDROP}${detail?.backdrop_path}`}
+              alt={detail?.original_title}
+            />
+            <Button
+              variant="light"
+              className="play-button p-0 d-flex align-items-center justify-content-center gap-1"
+              onClick={() => setPlayVideo(true)}
+            >
+              <i className="bi bi-play-fill" style={{ fontSize: "3rem" }} />{" "}
+              Play
+            </Button>
+          </>
+        )}
       </div>
       <div className="detail-content p-2">
         <div className="detail-info-div " style={{ padding: "16px 60px" }}>
@@ -87,13 +116,15 @@ const MovieDetailPage = () => {
           <div className="detail-info mt-3 w-100">출연진:</div>
           <div
             className="detail-reviews-div"
-            style={{ fontSize: "20px", marginTop: "10px" }}
+            style={{ fontSize: "15px", marginTop: "20px" }}
           >
-            Reviews{` (${reviews?.total_results})`}
+            <div style={{ fontSize: "22px" }}>
+              Reviews{` (${reviews?.total_results})`}
+            </div>
             <Reviews reviews={reviews} />
           </div>
           <div className="detail-recommendations">
-            <div style={{ margin: "20px 0px", fontSize: "20px" }}>
+            <div style={{ margin: "20px 0px", fontSize: "28px" }}>
               {" "}
               More Like This
             </div>

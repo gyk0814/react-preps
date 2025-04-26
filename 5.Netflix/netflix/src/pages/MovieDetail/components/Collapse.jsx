@@ -25,7 +25,7 @@ const Collapse = ({ review }) => {
           {rating % 2 !== 0 && (
             <i
               className="bi bi-star-half"
-              style={{ fontSize: "14.5px", alignSelf: "center" }}
+              style={{ fontSize: "14.5px ", alignSelf: "center" }}
             />
           )}
         </div>
