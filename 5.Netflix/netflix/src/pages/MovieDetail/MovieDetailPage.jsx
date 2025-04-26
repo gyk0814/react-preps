@@ -64,7 +64,7 @@ const MovieDetailPage = () => {
             />
             <Button
               variant="light"
-              className="play-button p-0 d-flex align-items-center justify-content-center gap-1"
+              className="detail-play-button p-0 d-flex align-items-center justify-content-center gap-1"
               onClick={() => setPlayVideo(true)}
             >
               <i className="bi bi-play-fill" style={{ fontSize: "3rem" }} />{" "}

@@ -13,6 +13,10 @@
 .info-title-small {
   font-size: 20px;
 }
+.info-title-lg {
+  font-size: 25px;
+}
+
 .info-movies {
   background-color: #181818a9 !important;
   position: relative !important;
@@ -34,11 +38,27 @@
     margin: 0 !important;
   }
 
+  .info-title-small {
+    font-size: 17px;
+  }
   .title {
-    font-size: 25px;
+    font-size: 19px;
+  }
+  .info-title-lg {
+    font-size: 20px;
   }
 
   .play-button {
-    width: 60% !important;
+    /* padding: 4px !important; */
+    width: max-content !important;
+    /* font-size: 15px; */
+    height: fit-content;
+    /* position: absolute;
+    top: 50%;
+    left: 40%; */
+  }
+  .info-movies {
+    width: 100% !important;
+    padding-left: 27px !important;
   }
 }

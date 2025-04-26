@@ -15,7 +15,11 @@ const MoviePosterCard = ({ movie }) => {
     if (title.length > 7) {
       return <div className="info-title-small">{title}</div>;
     } else {
-      return <div style={{ fontSize: "25px", color: "white" }}>{title}</div>;
+      return (
+        <div className="info-title-lg" style={{ color: "white" }}>
+          {title}
+        </div>
+      );
     }
   };
   const { data: movieGenres } = useMovieGenreQuery();
