@@ -86,9 +86,6 @@ const MovieDetailPage = () => {
               <div className="detail-info-list">
                 {detail?.release_date} ★ {detail?.vote_average.toFixed(1)}
                 {` (${detail?.vote_count}) `}
-                {formatRuntime(detail?.runtime)} $
-                {detail?.budget.toLocaleString()}{" "}
-                {detail?.spoken_languages[0]?.english_name.toUpperCase()}{" "}
               </div>
               <div>
                 {detail?.genres.map((genre, index) => {
@@ -113,7 +110,13 @@ const MovieDetailPage = () => {
               </p>
             </div>
           </div>
-          <div className="detail-info mt-3 w-100">출연진:</div>
+          <div className="detail-info mt-3 w-100 d-flex flex-row gap-5">
+            <span>총 예산: ${detail?.budget.toLocaleString()}</span>{" "}
+            <span>
+              언어: {detail?.spoken_languages[0]?.english_name.toUpperCase()}{" "}
+            </span>
+            <span>러닝타임: {formatRuntime(detail?.runtime)} </span>
+          </div>
           <div
             className="detail-reviews-div"
             style={{ fontSize: "15px", marginTop: "20px" }}
