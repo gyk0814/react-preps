@@ -21,26 +21,24 @@ import "./MovieCarousel.style.css";
 //     slidesToSlide: 0.1,
 //   },
 // };
+const responsive = {
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 5,
+    slidesToSlide: 3,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 3,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
 
-const MovieCarousel = ({ listTitle, useQuery, autoPlay }) => {
+const MovieCarousel = ({ listTitle, useQuery }) => {
   const { data, isLoading, error, isError } = useQuery();
-
-  const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 5,
-      slidesToSlide: autoPlay ? 1 : 4,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 3,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-      slidesToSlide: autoPlay ? 0.241 : 0.725,
-    },
-  };
 
   if (isLoading) {
     return <></>;
@@ -54,16 +52,11 @@ const MovieCarousel = ({ listTitle, useQuery, autoPlay }) => {
         swipeable={true}
         draggable={true}
         responsive={responsive}
-        infinite={autoPlay}
-        customTransition="transform 6000ms ease-in-out"
+        infinite={true}
+        customTransition="transform 300ms ease-in-out"
         containerClass="carousel-container"
         dotListClass="custom-dot-list-style"
-        autoPlay={autoPlay}
-        autoPlaySpeed={3000}
-        {...(!autoPlay && {
-          rewind: true,
-          rewindWithAnimation: false,
-        })}
+        autoPlay={false}
         sliderClass="slider"
       >
         {data?.map((movie, index) => (

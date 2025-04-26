@@ -10,19 +10,16 @@ const HomePage = () => {
     <div>
       <Banner />
       <MovieCarousel
-        listTitle={"Latest Polular Movies in Korea"}
+        listTitle={"Latest Polular Movies"}
         useQuery={useTrendingMoviesQuery}
-        autoPlay={true}
       />
       <MovieCarousel
         listTitle={"Polular TV Series"}
         useQuery={useTrendingTVSeriesQuery}
-        autoPlay={false}
       />
       <MovieCarousel
-        listTitle={"Top Rated Movies in Korea"}
+        listTitle={"Top Rated Movies"}
         useQuery={useTopRatedMoviesQuery}
-        autoPlay={false}
       />
       <div className="py-5"></div>
     </div>
