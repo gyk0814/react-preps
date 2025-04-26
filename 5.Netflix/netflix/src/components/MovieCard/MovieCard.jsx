@@ -9,7 +9,6 @@ import { useMovieTrailerQuery } from "../../hooks/useMovieTrailerQuery";
 import YouTube from "react-youtube";
 import { useNavigate } from "react-router";
 import { opts } from "../../constants/videoOpts";
-import useAllowAudioStore from "../../store/allowAudio";
 
 const MovieCard = ({ movie }) => {
   const [like, setLike] = useState(false);
@@ -48,22 +47,15 @@ const MovieCard = ({ movie }) => {
   const [showVolumeBtn, setShowVolumeBtn] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
   const playerRef = useRef(null);
-  const { allowAudio, setAllowAudio } = useAllowAudioStore();
 
   const mouseOverAction = () => {
     timeoutRef.current = setTimeout(() => {
       console.log("mouse over");
-      if (!allowAudio) {
-        setShowVolumeBtn(true);
-      }
       setPlayVideo(true);
-
-      console.log(playVideo);
-    }, 1000);
+    }, 500);
   };
   const mouseLeaveAction = () => {
     clearTimeout(timeoutRef.current);
-    setShowVolumeBtn(false);
     setPlayVideo(false);
   };
 
@@ -72,7 +64,6 @@ const MovieCard = ({ movie }) => {
 
     setShowVolumeBtn(true);
     setIsMuted(false);
-    setAllowAudio(true);
     setTimeout(() => {
       setShowVolumeBtn(false);
     }, 1500);
