@@ -4,18 +4,19 @@ import MovieCarousel from "../../components/MovieCarousel/MovieCarousel";
 import { useTrendingMoviesQuery } from "../../hooks/useTrendingMovies";
 import { useTrendingTVSeriesQuery } from "../../hooks/useTrendingTVSeries";
 import { useTopRatedMoviesQuery } from "../../hooks/useTopRatedMovies";
+import { useUpcomingMovieQuery } from "../../hooks/useUpcomingMovie";
 
 const HomePage = () => {
   return (
     <div>
       <Banner />
       <MovieCarousel
-        listTitle={"Latest Polular Movies"}
+        listTitle={"Latest Trending Movies"}
         useQuery={useTrendingMoviesQuery}
       />
       <MovieCarousel
-        listTitle={"Polular TV Series"}
-        useQuery={useTrendingTVSeriesQuery}
+        listTitle={"Upcoming Movies"}
+        useQuery={useUpcomingMovieQuery}
       />
       <MovieCarousel
         listTitle={"Top Rated Movies"}

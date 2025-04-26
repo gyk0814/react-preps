@@ -9,6 +9,7 @@ import { useMovieTrailerQuery } from "../../hooks/useMovieTrailerQuery";
 import YouTube from "react-youtube";
 import { useNavigate } from "react-router";
 import { opts } from "../../constants/videoOpts";
+import useAllowAudioStore from "../../store/allowAudio";
 
 const MovieCard = ({ movie }) => {
   const [like, setLike] = useState(false);
@@ -44,16 +45,37 @@ const MovieCard = ({ movie }) => {
     ? `url(https://www.themoviedb.org/t/p/w1066_and_h600_bestv2${movie.backdrop_path})`
     : "url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1200px-No-Image-Placeholder.svg.png";
 
+  const [showVolumeBtn, setShowVolumeBtn] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+  const playerRef = useRef(null);
+  const { allowAudio, setAllowAudio } = useAllowAudioStore();
+
   const mouseOverAction = () => {
     timeoutRef.current = setTimeout(() => {
       console.log("mouse over");
+      if (!allowAudio) {
+        setShowVolumeBtn(true);
+      }
       setPlayVideo(true);
+
       console.log(playVideo);
     }, 1000);
   };
   const mouseLeaveAction = () => {
     clearTimeout(timeoutRef.current);
+    setShowVolumeBtn(false);
     setPlayVideo(false);
+  };
+
+  const handleVolumeToggle = (e) => {
+    e.stopPropagation();
+
+    setShowVolumeBtn(true);
+    setIsMuted(false);
+    setAllowAudio(true);
+    setTimeout(() => {
+      setShowVolumeBtn(false);
+    }, 1500);
   };
 
   if (isLoading) {
@@ -71,7 +93,44 @@ const MovieCard = ({ movie }) => {
     >
       <div className="movie-player-div" style={{ backgroundImage: movieImg }}>
         {playVideo && (
-          <YouTube className="trailer" videoId={movieTrailerKey} opts={opts} />
+          <YouTube
+            className="trailer"
+            videoId={movieTrailerKey}
+            opts={{
+              ...opts,
+              playerVars: {
+                autoplay: 1,
+                mute: isMuted ? 1 : 0,
+                controls: 0,
+                modestbranding: 1,
+              },
+            }}
+          />
+        )}
+        {playVideo && showVolumeBtn && (
+          <Button
+            variant="light"
+            className="volume-toggle"
+            onClick={handleVolumeToggle}
+            style={{
+              position: "absolute",
+              top: "60px",
+              right: "10px",
+              zIndex: 2,
+              borderColor: "rgb(225,225,225)",
+              borderRadius: "40px",
+              padding: "1px 7px",
+
+              backgroundColor: "rgba(94, 93, 93, 0.5)",
+            }}
+          >
+            <i
+              className={`bi ${
+                isMuted ? "bi-volume-mute-fill" : "bi-volume-up-fill"
+              }`}
+              style={{ fontSize: "22px", color: "rgb(225,225,225)" }}
+            />
+          </Button>
         )}
         {handleTitle(movie.title || movie.name)}
       </div>
