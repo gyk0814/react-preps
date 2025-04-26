@@ -9,6 +9,7 @@ import { useMovieTrailerQuery } from "../../hooks/useMovieTrailerQuery";
 import YouTube from "react-youtube";
 import { useNavigate } from "react-router";
 import { opts } from "../../constants/videoOpts";
+import { checkIsMobile } from "../../constants/isMobile";
 
 const MovieCard = ({ movie }) => {
   const [like, setLike] = useState(false);
@@ -46,7 +47,7 @@ const MovieCard = ({ movie }) => {
 
   const [showVolumeBtn, setShowVolumeBtn] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
-  const playerRef = useRef(null);
+  //   const playerRef = useRef(null);
 
   const mouseOverAction = () => {
     timeoutRef.current = setTimeout(() => {
@@ -76,8 +77,8 @@ const MovieCard = ({ movie }) => {
   return (
     <div
       className="movie-card"
-      onMouseEnter={mouseOverAction}
-      onMouseLeave={mouseLeaveAction}
+      onMouseEnter={!checkIsMobile() ? mouseOverAction : null}
+      onMouseLeave={!checkIsMobile() ? mouseLeaveAction : null}
       onClick={() => {
         navigate(`/movies/${movie.id}`);
       }}

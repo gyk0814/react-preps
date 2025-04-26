@@ -58,6 +58,7 @@ const MovieCarousel = ({ listTitle, useQuery }) => {
         dotListClass="custom-dot-list-style"
         autoPlay={false}
         sliderClass="slider"
+        itemClass="carousel-item"
       >
         {data?.map((movie, index) => (
           <MovieCard key={index} movie={movie} />
