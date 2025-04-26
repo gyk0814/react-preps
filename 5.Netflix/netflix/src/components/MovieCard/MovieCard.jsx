@@ -134,7 +134,10 @@ const MovieCard = ({ movie }) => {
           <div style={{ fontSize: "25px" }}>
             <i
               className={like ? "bi bi-heart-fill" : "bi bi-heart"}
-              onClick={() => setLike(!like)}
+              onClick={(e) => {
+                e.stopPropagation();
+                setLike(!like);
+              }}
             />
           </div>
         </div>
